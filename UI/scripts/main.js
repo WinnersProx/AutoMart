@@ -3,5 +3,5 @@ let initialize = () => {
 }
 
 document.querySelector(window).addEventListener('scroll', () => {
-    console.log('scrolled');
+    console.log('scrolled now');
 })
