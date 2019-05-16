@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AutoMart | New Order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
+    <link rel="shortcut icon" href="./pictures/favicon.png" id="favicon">
+</head>
+<body>
+    <header>
+            <div class="branding"><a href="./" class="primary">AutoMart</a></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Type your search here...">
+            </div>
+            <div class="search-bar">
+                <label for="filter"> Filter </label>
+                <select name="filter" id="filter">
+                    <option value="unsold">Unsold</option>
+                    <option value="unsold">Sold</option>
+                </select>
+            </div>
+            <div class="dropdown">
+                <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
+                <ul class="dropdown-menu">
+                        <li><a href="./admin.html">Admin Panel</a></li>
+                    <li><a href="./profile.html">Profile</a></li>
+                    <li><a href="./signin.html">Logout</a></li>
+                </ul>
+            </div>
+    </header>
+    <main>
+       <div class="feedback-form">
+            <form action="">
+                <label for="amount">Amount <span class="danger"> &ast;</span></label>
+                <input type="number" id="amount" name="amount" placeholder="The amount you suggest">
+                <button type="submit" class="btn-submit">Make your purchase order</button>
+            </form>
+       </div>
+    </main>
+    <footer>
+        <div class="scroller">
+            <div class="toggler arrow-up"></div>
+        </div>
+    </footer>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
