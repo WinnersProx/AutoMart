@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AutoMart | Admin</title>
+    <title>AutoMart | Administration </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
-    
+    <link rel="shortcut icon" href="./pictures/favicon.png" id="favicon">
 </head>
 <body>
     <header>
@@ -15,26 +15,18 @@
                 <input type="text" placeholder="Type your search here...">
             </div>
             <div class="search-bar">
-                <label for="filter"> Sort by </label>
+                <label for="filter"> Filter </label>
                 <select name="filter" id="filter">
                     <option value="unsold">Unsold</option>
                     <option value="unsold">Sold</option>
                 </select>
             </div>
-            <nav class="navigation">
-                <li>
-                    <a href="./signup.html">Sign up</a>
-                </li>
-                <li>
-                    <a href="./signin.html">Sign in</a>
-                </li>
-            </nav>
             <div class="dropdown">
                 <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
                 <ul class="dropdown-menu">
-                        <li><a href="./admin.html">Admin</a></li>
+                    <li><a href="./admin.html">Admin Panel</a></li>
                     <li><a href="./profile.html">Profile</a></li>
-                    <li><a href="./logout.html">Logout</a></li>
+                    <li><a href="./signin.html">Logout</a></li>
                 </ul>
             </div>
     </header>
@@ -53,7 +45,7 @@
                 </div>
                 <div class="card-footer">
                     <button class="order">Order</button>
-                    <button class="view">View</button>
+                    <button class="view"><a href="show.html">View</a></button>
                 </div>
            </div>
            <div class="card">
@@ -85,7 +77,7 @@
                 </div>
                 <div class="card-footer">
                     <button class="order">Order</button>
-                    <button class="view">View</button>
+                    <button class="view"><a href="./show.html">View</a></button>
                 </div>
            </div>
            <div class="card">
@@ -101,7 +93,7 @@
                 </div>
                 <div class="card-footer">
                     <button class="order">Order</button>
-                    <button class="view">View</button>
+                    <button class="view"><a href="./show.html">View</a></button>
                 </div>
            </div>
             

@@ -255,6 +255,7 @@ button.view{
     transform: scale(0);
     opacity: 0;
     visibility: hidden;
+    transition: all .4s ease-in ;
 }
 .show{
     opacity: 1 !important;
@@ -446,7 +447,7 @@ li{
     font-size: 1.1em;
     margin-bottom: .2em;
 }
-.feedback-form input:not(.img-uploader), .feedback-form select{
+.feedback-form input:not(.img-uploader), .feedback-form select, .feedback-form textarea{
     display: block;
     border: none;
     outline: none;
@@ -458,6 +459,7 @@ li{
     padding: .6rem 0.75rem;
     background-clip: padding-box;
     margin-bottom: .8rem;
+    resize: none;
 }
 .uploader{
     position: relative;
