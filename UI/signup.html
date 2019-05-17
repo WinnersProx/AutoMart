@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AutoMart | Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
+    <link rel="shortcut icon" href="./pictures/favicon.png" id="favicon">
+</head>
+<body>
+    <header>
+        <div class="branding"><a href="./" class="primary">AutoMart</a></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Type your search here or filter...">
+        </div>
+        <div class="search-bar">
+            <label for="filter"> Filter </label>
+            <select name="filter" id="filter">
+                <option value="price-range">Price range</option>
+                <option value="state">State</option>
+                <option value="state">Manufacturer</option>
+            </select>
+        </div>
+        <nav class="navigation">
+            <li>
+                <a href="./signup.html">Sign up</a>
+            </li>
+            <li>
+                <a href="./signin.html">Sign in</a>
+            </li>
+        </nav>
+    </header>
+    <main>
+       <div class="feedback-form">
+            <form action="">
+                <label for="fname">First Name<span class="danger"> &ast;</span></label>
+                <input type="text" id="fname" name="first_name" placeholder="Your firstname">
+                <label for="lname">Last Name<span class="danger"> &ast;</span></label>
+                <input type="text" id="lname" name="last_name" placeholder="Your lastname">
+                <label for="email">Email<span class="danger"> &ast;</span></label>
+                <input type="email" id="email" name="email" placeholder="Your email">
+                <label for="password">Password<span class="danger"> &ast;</span></label>
+                <input type="password" id="password" name="password" placeholder="Your password">
+                <label for="address">Address<span class="danger"> &ast;</span></label>
+                <input type="text" id="address" name="address" placeholder="Your address">
+                <button type="submit" class="btn-submit">Sign Up</button>
+                If already have an account signin <a href="signin.html" class="primary">here</a>
+            </form>
+       </div>
+    </main>
+    <footer>
+        <div class="scroller">
+            <div class="toggler arrow-up"></div>
+        </div>
+    </footer>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
