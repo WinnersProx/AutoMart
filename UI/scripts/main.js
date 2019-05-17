@@ -22,6 +22,19 @@ togglerButton.addEventListener('click', () => {
 toggleDropdown.forEach((current, index) => {
 	current.addEventListener('click', e => {
 		let target = e.target.parentNode.children[1];
-		if (!target.classList.contains('show')) target.classList.add('show');else target.classList.remove('show');
+		if (!target.classList.contains('show')) 
+			target.classList.add('show');
+		else 
+			target.classList.remove('show');
 	});
+	
 });
+window.addEventListener('click', e => {
+	// ensures that whenever the user clicks outside the dropdown menu => this one get closed
+	if(!e.target.matches('.dropdown-toggle')){
+		document.querySelectorAll('.dropdown-menu').forEach((current, index) => {
+			if (current.classList.contains('show'))
+				current.classList.remove('show')	
+		})
+	}
+})

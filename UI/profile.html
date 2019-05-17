@@ -12,23 +12,16 @@
     <header>
             <div class="branding"><a href="./" class="primary">AutoMart</a></div>
             <div class="search-bar">
-                <input type="text" placeholder="Type your search here...">
+                <input type="text" placeholder="Type your search here or filter...">
             </div>
             <div class="search-bar">
                 <label for="filter"> Filter </label>
                 <select name="filter" id="filter">
-                    <option value="unsold">Unsold</option>
-                    <option value="unsold">Sold</option>
+                    <option value="price-range">Price range</option>
+                    <option value="state">State</option>
+                    <option value="state">Manufacturer</option>
                 </select>
             </div>
-            <nav class="navigation">
-                <li>
-                    <a href="./signup.html">Sign up</a>
-                </li>
-                <li>
-                    <a href="./signin.html">Sign in</a>
-                </li>
-            </nav>
             <div class="dropdown">
                 <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
                 <ul class="dropdown-menu">
@@ -74,6 +67,7 @@
                          </div>
                          <div class="card-footer">
                             <button class="view"><a href="#">Approve</a></button>
+                            <button class="order"><a href="#">Reject</a></button>
                          </div>
                     </div>
                     <div class="card">
@@ -100,8 +94,9 @@
                              </div>
                          </div>
                          <div class="card-footer">
-                             <button class="view"><a href="#">Approve</a></button>
-                         </div>
+                            <button class="view"><a href="#">Approve</a></button>
+                            <button class="order"><a href="#">Reject</a></button>
+                        </div>
                     </div>
                     <div class="card">
                          <div class="card-header">
@@ -116,6 +111,7 @@
                          </div>
                          <div class="card-footer">
                              <button class="view"><a href="#">Approve</a></button>
+                             <button class="order"><a href="#">Reject</a></button>
                          </div>
                     </div>
                      

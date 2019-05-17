@@ -12,13 +12,14 @@
     <header>
             <div class="branding"><a href="./" class="primary">AutoMart</a></div>
             <div class="search-bar">
-                <input type="text" placeholder="Type your search here...">
+                <input type="text" placeholder="Type your search here or filter...">
             </div>
             <div class="search-bar">
                 <label for="filter"> Filter </label>
                 <select name="filter" id="filter">
-                    <option value="unsold">Unsold</option>
-                    <option value="unsold">Sold</option>
+                    <option value="price-range">Price range</option>
+                    <option value="state">State</option>
+                    <option value="state">Manufacturer</option>
                 </select>
             </div>
             <nav class="navigation">
@@ -39,7 +40,7 @@
             </div>
     </header>
     <main>
-       <div class="cards">
+       <div class="cards cards-view">
            <div class="card view-card">
                 <div class="card-header">
                     <div class="model">Model Name</div>
@@ -75,10 +76,10 @@
                                 <div class="bolder">Status</div>
                                 <div class="primary">sold</div>
                             </div>
-                            <button class="order btn-secondary">Order this product</button>
                         </div>
                     </div>
                 </div>
+                <button class="order btn-secondary">Order this product</button>
            </div>
        </div>
     </main>
