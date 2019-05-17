@@ -138,7 +138,7 @@ body{
 main{
     position: relative;
     padding-top:42px;
-    margin: 0 100px;
+    margin: 0 80px;
 }
 main .present{
     color: var(--light);
@@ -149,7 +149,7 @@ main .present{
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 500px;
+    height: 85vh;
 }
 .present-texts{
     font-weight: bold;
@@ -288,7 +288,7 @@ button.view{
 .card.view-card .view-card-infos{
     font-family: sans-serif;
     padding: 0 1em;
-    width: 35%;
+    width: 46%;
 }
 .view-card-infos .description{
     font-weight: bold;
@@ -308,10 +308,13 @@ button.view{
 .bolder{
     font-weight: bold;
 }
-.product-infos button{
+
+.cards.cards-view button{
     margin-top: 1em;
     padding: .4em 1.5em;
-    
+    width: 300px;
+    margin: .3em;
+    float: right;
 }
 
 /* Profile page design */
@@ -394,8 +397,8 @@ li{
     border-radius: 8px;
     min-width: 130px;
     z-index: 100;
-    top: 1.8em;
-    right: 0;
+    top: 2em;
+    right: .2em;
     padding: .4em;
     opacity: 0;
     visibility: hidden;
@@ -491,7 +494,7 @@ button.btn-submit{
 
 /* Responsiveness accross Mobile, Tablets and Desktops */
 
-@media(max-width:930px){
+@media(max-width:1000px){
     main{
         margin: 0 50px;
     }
@@ -502,14 +505,6 @@ button.btn-submit{
     header .branding{
         padding: 0 1em;
     }
-
-    /* for the cards */
-    .card{
-        width: 49% !important;
-    }
-}
-@media(max-width:930px){
-    /* For tablets */
     main{
         margin: 0 15px;
     }
@@ -526,11 +521,20 @@ button.btn-submit{
     .card{
         width: 49% !important;
     }
+    .card.view-card{
+        width: 100% !important;
+    }
+    
 }
-@media(max-width:600px){
+
+@media(max-width:700px){
     /* For tablets */
     main{
         margin: 0;
+    }
+    main .present{
+        /* background-size: contain; */
+        height: 70vh;
     }
     /* for the header */
     .search-bar input{
@@ -538,13 +542,35 @@ button.btn-submit{
     }
     
     header .branding{
+        content: "url('../pictures/favicon.png')";
         padding: .2em;
-        font-size: 1.3em;
+        font-size: 1.1em;
+    }
+    
+
+    nav li a {
+        padding: 0 .3em;
+        font-size: 0.7em;
+        font-weight: normal;
     }
 
     /* for the cards */
+    .cards{
+        flex-direction: column;
+    }
     .card{
         width: 99% !important;
+    }
+    .card.view-card .card-body{
+        flex-direction: column;
+        position: relative;
+        height: auto;
+    }
+    .card.view-card .card-body .car-images{
+        width: calc(100% - .9em);
+    }
+    .card.view-card .view-card-infos{
+        width: 90%;
     }
     /* for the profile */
     .profile{
@@ -565,6 +591,47 @@ button.btn-submit{
     }
     .user-name{
         font-size: 1.1em;
+    }
+    header{
+        justify-content:space-around;
+    }
+    header nav{
+        padding: 0;
+    }
+    .search-bar label{
+        display: none;
+    }
+    .search-bar input, .search-bar select{
+        padding:0.4em 1em;
+        margin: 0 .1em;
+    }
+    header .dropdown{
+        margin-top: 5px;
+        margin-right: 0;
+    }
+    .user-avatar{
+        width: 20px;
+        height: 20px;
+        margin-right: .5em;
+    }
+    .feedback-form{
+        width: 93%;
+        margin: .4em;
+    }
+    .feedback-form.small{
+        margin: 1em .4em;
+    }
+}
+@media(max-width:430px){
+    header{
+        height: 60px;
+        flex-wrap: wrap;
+    }
+    header .dropdown-menu{
+        top:48px;
+    }
+    main .present {
+        height: 80vh;
     }
 }
 
