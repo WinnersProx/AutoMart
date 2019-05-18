@@ -592,9 +592,7 @@ button.btn-submit{
     .user-name{
         font-size: 1.1em;
     }
-    header{
-        justify-content:space-around;
-    }
+    
     header nav{
         padding: 0;
     }
@@ -625,10 +623,25 @@ button.btn-submit{
 @media(max-width:430px){
     header{
         height: 60px;
-        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
+        padding-bottom: 5px;
+    }
+    header nav{
+        padding-left: 0px;
+        margin-top: 0px;
+    }
+    nav li a {
+        font-size: 0.8em;
+    }
+    header .dropdown{
+        margin-top: 0;
     }
     header .dropdown-menu{
-        top:48px;
+        top:25px;
+        margin-right: 0;
+    }
+    main{
+        margin-top: 20px;
     }
     main .present {
         height: 80vh;
