@@ -624,10 +624,14 @@ button.btn-submit{
     header{
         height: 60px;
         flex-wrap: wrap-reverse;
-        padding-bottom: 5px;
+        padding-bottom: 3px;
+        padding-top: 7.5px;
+    }
+    header .branding{
+        padding: 0 .8em;
     }
     header nav{
-        padding-left: 0px;
+        padding-left: 7px;
         margin-top: 0px;
     }
     nav li a {
@@ -641,14 +645,32 @@ button.btn-submit{
         margin-right: 0;
     }
     main{
-        margin-top: 20px;
+        margin-top: 31px;
     }
     main .present {
         height: 80vh;
     }
+    .search-bar input, .search-bar select {
+        padding: 0.4em 1em;
+        margin: 0 .3em;
+    }
+    .feedback-form{
+        margin: .2em;
+    }
+    .feedback-form.small {
+        margin: 1em 0.2em;
+    }
 }
 
-
+@media(max-width:372px){
+    header .branding{
+        transform: translateY(-36px);
+        font-size: 1.2em;
+    }
+    .search-bar select{
+        transform: translateY(31px);
+    }
+}
 
 
 
