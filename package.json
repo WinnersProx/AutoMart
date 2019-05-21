@@ -1,0 +1,26 @@
+{
+  "name": "automart-api-endpoints",
+  "version": "1.0.0",
+  "description": "Api that will serve our built templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WinnersProx/AutoMart.git"
+  },
+  "author": "Bihame Sikubwabo Vainqueur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WinnersProx/AutoMart/issues"
+  },
+  "homepage": "https://github.com/WinnersProx/AutoMart#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "express": "^4.17.0",
+    "mocha": "^6.1.4",
+    "multer": "^1.4.1"
+  }
+}
