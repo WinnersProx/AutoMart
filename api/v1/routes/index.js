@@ -1,8 +1,8 @@
 import express from 'express'
-import authRouter from './endpoints/auth'
+import routes from './endpoints'
 
-const apiRouter = express.Router()
+const router = express.Router()
 
-apiRouter.use('/api/v1/',authRouter)
+router.use('/api/v1/',routes)
 
-export default apiRouter
+export default router

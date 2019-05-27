@@ -1,24 +1,23 @@
-import UserModel from '../models/user'
+import CarsModel from '../models/cars'
 import Validations from '../middlewares/authValidation'
 import userModel from '../models/user';
 const authController = {
 
-    signup : (req, res) => {
-        let user = UserModel.createUser(req.body)
+    createCar : (req, res) => {
+        let car = CarsModel.createCar(req.body)
         
-        if(user){
-            Validations.authenticate(user)
+        if(car){
             res.status(200)
             .send({
                 status : 200,
-                data : user
+                data : car
             })
         }
         else{
-            res.status(401)
+            res.status(400)
             .send({
-                status : 401 ,
-                message : user_error
+                status : 400 ,
+                message : "Unable to save this post"
             })
         }
         
