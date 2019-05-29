@@ -1,13 +1,11 @@
-import UserModel from '../models/user'
-import Validations from '../middlewares/authValidation'
-import userModel from '../models/user';
+import userModel from '../models/users';
+import crypto from 'crypto'
 const authController = {
 
     signup : (req, res) => {
-        let user = UserModel.createUser(req.body)
-        
+        let user = userModel.createUser(req.body)
         if(user){
-            Validations.authenticate(user)
+            authController.authenticate(user)
             res.status(200)
             .send({
                 status : 200,
@@ -24,10 +22,9 @@ const authController = {
         
     },
     signin : (req, res) => {
-        let user = UserModel.findUser(req.body)
-        
+        let user = userModel.findUser(req.body)
         if(user){
-            Validations.authenticate(user)
+            authController.authenticate(user)
             res.status(200)
             .send({
                 status : 200 ,
@@ -43,11 +40,18 @@ const authController = {
         }
     },
     signout : (req, res) => {
-        process.env.UTOKEN = null
+        userModel.authenticate(null)
         res.status(200).send({
             message : "User logged out successfully",
             status : 200
         })
+    },
+    authenticate : (user) => {
+        let token = ((user.id) + '.' + crypto.randomBytes(8).toString('hex'));
+        process.env.UTOKEN = token 
+        user.token = token;
+        userModel.authenticate(user.token)
+        return user;
     }
 }
 export default authController

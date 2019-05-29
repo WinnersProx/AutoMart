@@ -1,5 +1,5 @@
 // should have an id, email, firstname, last_name, password, address and is_admin properties
-global.user_error = "user could not be saved"
+global.user_error = "Error occured"
 let userStore = [
     {
         id : 0 ,
@@ -20,21 +20,30 @@ let userStore = [
         is_admin : true 
     }
 ];
+let authenticated = [
+    { UTOKEN : ""}
+]
+
 class UserModel {
-    
     // list all the users
+    authenticate(token){
+        authenticated[0].UTOKEN = token
+    }
+    getAuth(){
+        return authenticated[0].UTOKEN
+    }
     getUsers(){
         return userStore
     }
     // get user by id
     getUser(id){
-        return userStore[parseInt(id)]
+        return this.getUsers()[parseInt(id)]
     }
     createUser(newUser){
         if(!this.userExists(newUser)){
             newUser.id = parseInt(this.getUsers().length)
             newUser.is_admin = false
-            userStore.push(newUser)
+            userStore = [...userStore, newUser]
             return this.getUser(newUser.id)
         }
         else{
@@ -59,20 +68,6 @@ class UserModel {
         return userStore.find((found) => {
             return found.email === user.email
         })
-    }
-    
-    isLoggedIn(user){
-        const { email, token } = user
-        if(email.trim() && token.trim()){
-            const isSignedIn =  userStore.find((found) => {
-                return user.email === found.email && user.password === found.password
-            })
-            return isSignedIn
-        }
-        else{
-            user_error = "This user does not exist, please signup first"
-            return false
-        }
     }
 
 }

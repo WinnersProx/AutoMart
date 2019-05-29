@@ -1,30 +1,31 @@
-import UserModel from './user'
+import UserModel from './users'
+let carsStock = [
+    {
+        id : 0 ,
+        owner : 0,
+        created_on : new Date() ,
+        manufacturer : "Toyota" ,
+        model : "Mercedess Benz" ,
+        price : 150000.00 ,
+        state : "Used" ,
+        status : "available" ,
+        body_type : "Car"
+    }
+]
 class CarsModel {
     errors(){
         return []
     }
     getCars(){
-        return [
-            {
-                id : Integer ,
-                user : Object,
-                created_on : DateTime ,
-                manufacturer : String ,
-                model : String ,
-                price : Float ,
-                state : String ,
-                status : String ,
-            }
-        ]
+        return carsStock
     }
     createCar(newCar){
-        newCar.id = parseInt(this.getUsers().length)
+        let owner = UserModel.findById(process.env.UTOKEN.split('.')[0])
+        newCar.id = parseInt(this.getCars().length)
         newCar.created_on = new Date()
-
-        // get first the author of the car
-        newCar.user = UserModel.findById(process.env.UTOKEN.split('.')[0])
-
-        this.getCars().push(newCar)
+        newCar.owner = owner.id
+        carsStock = [...carsStock, newCar]
+        newCar.email = owner.email
         return newCar
     }
     

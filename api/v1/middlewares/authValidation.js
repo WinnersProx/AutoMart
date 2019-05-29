@@ -1,7 +1,6 @@
-import crypto from 'crypto'
-import UserModel from '../models/user'
+import UserModel from '../models/users'
 let errors = []
-export default {
+const AuthValidations = {
     validateUser : (req, res, next) => {
         
         const { email, first_name, last_name, password, password_confirm, address } = req.body
@@ -37,17 +36,9 @@ export default {
         
         if(errors.length)
             res.status(400).send({ status : 400, errors : errors})
-        errors = []
         next()
-    },
-    authenticate : (user) => {
-        // generate token basing on the email, password and id
-        // const { email, password, id } = user;
-        // generate random token
-        let token = ((user.id) + '.' + crypto.randomBytes(8).toString('hex'));
-        process.env.UTOKEN = token 
-        user.token = token;
-        return user;
+        errors = []
+        
     },
     validateSignin : (req, res, next) => {
         const { email, password } = req.body
@@ -59,20 +50,21 @@ export default {
         if(!password && !password.trim()){
             errors.push("The password should not be empty")
         }
-
+        
         if(errors.length)
             res.status(400).send({ status : 400, errors : errors})
-        errors = []
         next()
+        errors = []
     },
     isAuthenticated : (req, res, next) => {
         const authorization = req.headers.authorization
         let user = UserModel.findById(authorization.split('.')[0])
 
-        if(!user && !(authorization === process.env.UTOKEN)){
+        if(!user || !(authorization === UserModel.getAuth())){
             res.status(401).send({ status : 401, message : "Invalid token"})
         }
         next()
     }
     
 }
+export default AuthValidations

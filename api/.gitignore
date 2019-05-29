@@ -1,2 +1,4 @@
 # The directory containing dev dependencies
 node_modules
+.vscode
+../.vscode
