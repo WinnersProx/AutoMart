@@ -4,8 +4,6 @@ const app = express()
 const PORT = 8000 || process.env.PORT
 // some middlewares
 app.use(express.urlencoded({extended : false}))
-// cross origin resource security(CORS) handler
-
 
 app.get('/', (req, res) => {
     res.send('Welcome to the AutoMart api')
