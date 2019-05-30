@@ -1,6 +1,6 @@
 import express from 'express'
-import carsController from '../../controllers/cars_controller'
-import authValidations from '../../middlewares/authValidation'
+import carsController from '../controllers/cars_controller'
+import authValidations from '../middlewares/authValidation'
 const routes = express.Router()
 // hence we'll be using custom middlewares to handle all user requests
 routes

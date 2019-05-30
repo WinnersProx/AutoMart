@@ -1,6 +1,6 @@
 import express from 'express'
-import authController from '../../controllers/auth_controller'
-import Validations from '../../middlewares/authValidation'
+import authController from '../controllers/auth_controller'
+import Validations from '../middlewares/authValidation'
 
 const routes = express.Router()
 // hence we'll be using customized middlewares to validate all the auth requests
