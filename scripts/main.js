@@ -1,13 +1,15 @@
 "use strict";
 
-const togglerButton = document.querySelector('div.toggler');
+const togglerButton  = document.querySelector('div.toggler');
 const toggleDropdown = document.querySelectorAll('.dropdown-toggle');
-const dropdownBody = document.querySelector('.dropdown-menu');
-
+const dropdownBody   = document.querySelector('.dropdown-menu');
+const fliterControl  = document.querySelector('select#filter')
+const searchBarInputs = document.querySelectorAll('div.search-bar input[type="text"]')
+const filterBtn = document.querySelector('button.filterBtn')
 // control window scrolls
 
 window.addEventListener('scroll', () => {
-	if (window.pageYOffset * 2 > window.innerHeight) togglerButton.classList.add('show');else togglerButton.classList.remove('show');
+	(window.pageYOffset * 2 > window.innerHeight)  ? togglerButton.classList.add('show') : togglerButton.classList.remove('show');
 });
 
 togglerButton.addEventListener('click', () => {
@@ -37,4 +39,33 @@ window.addEventListener('click', e => {
 				current.classList.remove('show')	
 		})
 	}
+})
+
+// filter controls
+let inputsLength = searchBarInputs.length;
+fliterControl.addEventListener('change', e => {
+	// for getting the current filter option
+	let target = e.target.selectedIndex
+	if(target){
+		// we should have two input filters as we are dealing with price range (min and max)
+		if(target === 1 && inputsLength === 1){
+			searchBarInputs[0].classList.remove('no-split')
+			searchBarInputs[0].placeholder = 'Min price'
+			let newInput = searchBarInputs[0].cloneNode(true)
+			searchBarInputs[0].style.marginRight = '2px'
+			newInput.placeholder = 'Max price'
+			document.querySelector('.search-bar').insertBefore(newInput,searchBarInputs[0].nextSibling)
+			inputsLength += 1
+		}
+		else{
+			console.log(searchBarInputs)
+			if(inputsLength > 1) {
+				console.log(searchBarInputs)
+				// searchBarInputs[0].classList.add('no-split')
+				// searchBarInputs[0].parentNode.removeChild(searchBarInputs[1])
+				// inputsLength -= 1
+			}
+		}
+	}
+	
 })
