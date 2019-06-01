@@ -24,6 +24,26 @@ const ordersValidations = {
         next()
         errors = []
         
+    },
+    checkOrder : (req, res, next) => {
+        const orderId = req.params.order_id
+        const order = ordersModel.findById(parseInt(orderId))
+        let errors = []
+        if(!order){
+            errors.push("The given order does not exist")
+        }
+        else{
+            console.log(order.buyer)
+            order.status !== 'pending' ? errors.push("Sorry at this stage the order cannot be updated") : errors
+            parseInt(order.buyer) !== parseInt(req.headers.authorization.split('.')[0])
+            ? errors.push("Sorry, You cannot update the order which is not yours") 
+            : errors
+        }
+            
+        if(errors.length)
+            res.status(400).send({ status : 400, errors : errors})
+        next()
+        errors = []
     }
     
 }

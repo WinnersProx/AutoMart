@@ -18,6 +18,13 @@ const ordersController = {
             })
         }
         
+    },
+    updatePrice : (req, res) => {
+        const update = ordersModel.newPrice(parseInt(req.params.order_id), req.body.amount)
+        if(update)
+            res.status(200).send({ status : 200, data : update})
+        else
+            res.status(400).send({ status : 400, error : "Error occured, try again later!"})
     }
     
 }

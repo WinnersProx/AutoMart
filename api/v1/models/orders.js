@@ -33,6 +33,16 @@ class OrdersModel {
         })
     }
 
+    newPrice(priceId, price){
+        const order = this.findById(priceId)
+        if(order){
+            const old = order.amount
+            order.old_price_offered = old
+            order.new_price_offered = price
+            return order
+        }
+    }
+
 }
 const ordersModel = new OrdersModel()
 export default ordersModel

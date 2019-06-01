@@ -6,6 +6,6 @@ const routes = express.Router()
 
 routes
 .post('/order', authValidations.isAuthenticated, ordersController.newOrder) 
-// .post('/order/:order-id/price', authValidations.isAuthenticated, carsController.createCar)
+.patch('/order/:order_id/price', authValidations.isAuthenticated, ordersValidations.checkOrder, ordersController.updatePrice)
 
 export default routes;
