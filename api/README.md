@@ -1,4 +1,4 @@
-##AUTOMART PROJECT API
+## AUTOMART PROJECT API
 
 <!-- coverals and climate integration goes here -->
 
@@ -51,7 +51,7 @@ Tools used for development of this API are;
 
 ## Asserts or tests
 
-To the tests and make sure that all api endpoints are working perfectly just type in your command line interface the following commands :
+To run the tests and make sure that all api endpoints are working perfectly just type in your command line interface the following commands :
 ```sh
    $ npm test 
  ``` 

@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/WinnersProx/AutoMart#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cors": "^2.8.5",
