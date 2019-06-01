@@ -1,7 +1,0 @@
-deploy   :
-  provider : pages
-  skip-cleanup : true
-  local_dir    : UI/.
-  github-token : $GIT_TOKEN
-  on : 
-    branch : user-interface

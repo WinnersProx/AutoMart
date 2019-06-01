@@ -1,0 +1,23 @@
+{
+  "name": "AutoMart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d UI"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WinnersProx/AutoMart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WinnersProx/AutoMart/issues"
+  },
+  "homepage": "https://github.com/WinnersProx/AutoMart#readme",
+  "dependencies": {
+    "gh-pages": "^2.0.1"
+  }
+}
