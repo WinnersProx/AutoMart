@@ -1,4 +1,6 @@
 import UserModel from './users'
+import AuthValidations from '../middlewares/authValidation'
+import userModel from './users';
 let carsStock = [
     {
         id : 0 ,
@@ -35,6 +37,11 @@ class CarsModel {
             return found.id === carId
         })
     }
+
+    isOwner(userId, car){ // checks if a user is the owner of a car
+        return (parseInt(car.owner) === parseInt(userId)) ? true : false
+    }
+
 
 }
 const carsModel = new CarsModel()

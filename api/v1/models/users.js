@@ -69,6 +69,9 @@ class UserModel {
             return found.email === user.email
         })
     }
+    get getAuthUser(){
+        return this.findById(this.getAuth().split('.')[0])
+    }
 
 }
 const userModel = new UserModel()
