@@ -60,6 +60,15 @@ class CarsModel {
         }
         return false
     }
+    removeCar(carId){
+        carId = parseInt(carId)
+        let target = this.findById(carId)
+        if(this.isOwner(userModel.getAuthUser.id, target)){
+            carsStock.splice(carsStock[carId], 1)
+            return true
+        }
+        return false
+    }
 
 }
 const carsModel = new CarsModel()

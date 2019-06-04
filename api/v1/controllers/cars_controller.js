@@ -72,6 +72,12 @@ const carsController = {
             })
         }
         res.status(200).send({ status : 200, data : cars})
+    },
+    deleteCar : (req, res) => {
+        if(carsModel.removeCar(req.params.car_id))
+            res.status(200).send({status : 200, data : "Car Ad successfully deleted"})
+        else
+            res.status(403).send({status : 403, data : "You are forbidden to perform this action"})
     }
     
 }
