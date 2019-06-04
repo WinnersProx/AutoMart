@@ -58,7 +58,7 @@ const carsController = {
         
     },
     viewCars : (req, res) => {
-        let { status, min_price, max_price, state, manufacturer } = req.query
+        let { status, min_price, max_price, state, manufacturer, body_type} = req.query
         // this is to ensure that all posted ads are available when we have GET /car without any param nor a query
         let cars = carsModel.getCars() 
         if(status){
@@ -79,6 +79,11 @@ const carsController = {
         if(status && manufacturer){
             cars = cars.filter((car) => {
                 return car.manufacturer === manufacturer && car.status === status 
+            })
+        }
+        if(body_type){
+            cars = cars.filter((car) => {
+                return car.body_type === body_type
             })
         }
         res.status(200).send({ status : 200, data : cars})
