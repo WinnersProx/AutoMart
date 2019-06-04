@@ -39,6 +39,18 @@ const carsController = {
             res.status(404).send({ status : 404, error : "Sorry, the specified post does not exist"})
         }
         
+    },
+    updatePrice : (req, res) => {
+        let car = carsModel.updateCarPrice(req.params.car_id, req.body)
+        if(car){
+            const owner = userModel.findById(car.owner)
+            car.email = owner.email
+            res.status(200).send({ status : 200, data : car})
+        }
+        else{
+            res.status(400).send({ status : 400, error : "Sorry, make sure that you're the owner and that the car exist"})
+        }
+        
     }
     
 }

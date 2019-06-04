@@ -6,7 +6,7 @@ const routes = express.Router()
 routes
 .post('/car', authValidations.isAuthenticated, carsController.createCar) //create a car sale ad
 .patch('/car/:car_id/status', authValidations.isAuthenticated, carsController.changeStatus)  // mark a posted car as sold
-// .patch('/car/:car-id/price', authValidations.isAuthenticated, carsController.createCar)  // update the price of a posted car
+.patch('/car/:car_id/price', authValidations.isAuthenticated, carsController.updatePrice)  // update the price of a posted car
 // .get('/car/:car-id/status', authValidations.isAuthenticated, carsController.createCar)  // view a specific car
 // .get('/car', authValidations.isAuthenticated, carsController.createCar)  // view all unsold car
 // // User can also view all unsold cars within a price range using queryStrings can also View all posted ads whether sold or available without any parameters

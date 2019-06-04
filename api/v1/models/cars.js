@@ -41,7 +41,14 @@ class CarsModel {
     isOwner(userId, car){ // checks if a user is the owner of a car
         return (parseInt(car.owner) === parseInt(userId)) ? true : false
     }
-
+    updateCarPrice(car_id, data){
+        let target = this.findById(parseInt(car_id))
+        if(target && this.isOwner(userModel.getAuthUser.id, target)){
+            target.price = data.amount
+            return target
+        }
+        return false
+    }
 
 }
 const carsModel = new CarsModel()
