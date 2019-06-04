@@ -32,6 +32,9 @@ class UserModel {
     getAuth(){
         return authenticated[0].UTOKEN
     }
+    getAuthUser(){
+        return this.findById(this.getAuth().split('.')[0])
+    }
     getUsers(){
         return userStore
     }

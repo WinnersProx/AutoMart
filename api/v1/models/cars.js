@@ -1,4 +1,4 @@
-import UserModel from './users'
+import userModel from './users'
 let carsStock = [
     {
         id : 0 ,
@@ -20,7 +20,7 @@ class CarsModel {
         return carsStock
     }
     createCar(newCar){
-        let owner = UserModel.findById(process.env.UTOKEN.split('.')[0])
+        let owner = userModel.findById(process.env.UTOKEN.split('.')[0])
         newCar.id = parseInt(this.getCars().length)
         newCar.created_on = new Date()
         newCar.owner = owner.id
@@ -35,6 +35,15 @@ class CarsModel {
             return found.id === carId
         })
     }
+    updateCarStatus(carId){
+        let target = this.findById(parseInt(carId))
+        if(target &&  parseInt(userModel.getAuthUser().id) === parseInt(target.owner)){
+            target.status = 'sold'
+            return target
+        }
+        return false
+    }
+
 
 }
 const carsModel = new CarsModel()
