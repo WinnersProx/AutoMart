@@ -51,6 +51,11 @@ const carsController = {
             res.status(400).send({ status : 400, error : "Sorry, make sure that you're the owner and that the car exist"})
         }
         
+    },
+    viewCar : (req, res) => {
+        let car = carsModel.findById(req.params.car_id)
+        res.status(200).send({ status : 200, data : car})
+        
     }
     
 }

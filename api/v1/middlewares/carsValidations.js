@@ -38,6 +38,13 @@ const carsValidations = {
         next()
         errors = []
         
+    },
+    exists : (req, res, next) => {
+        let car = carsModel.findById(req.params.car_id)
+        if(!car){
+            res.status(404).send({ status : 404, error : "Please the target car ad could not be found" })
+        }
+        next()
     }
     
 }
