@@ -9,7 +9,7 @@ let carsStock = [
         manufacturer : "Toyota" ,
         model : "Mercedess Benz" ,
         price : 80000.00 ,
-        state : "Used" ,
+        state : "new" ,
         status : "available" ,
         body_type : "Car"
     },
@@ -20,8 +20,8 @@ let carsStock = [
         manufacturer : "Be Forward" ,
         model : "Obama V8" ,
         price : 150000.00 ,
-        state : "Used" ,
-        status : "sold" ,
+        state : "new" ,
+        status : "available" ,
         body_type : "Car"
     }
 ]
