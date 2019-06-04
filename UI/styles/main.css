@@ -156,8 +156,8 @@ main .present{
     position: relative;
     font-family: sans-serif;
     text-align: center;
-    background-color: #1e1d21;
     background: url("../pictures/automart.png");
+    background-color: #1e1d21;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
