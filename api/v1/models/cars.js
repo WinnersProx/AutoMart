@@ -8,9 +8,20 @@ let carsStock = [
         created_on : new Date() ,
         manufacturer : "Toyota" ,
         model : "Mercedess Benz" ,
-        price : 150000.00 ,
+        price : 80000.00 ,
         state : "Used" ,
         status : "available" ,
+        body_type : "Car"
+    },
+    {
+        id : 0 ,
+        owner : 0,
+        created_on : new Date() ,
+        manufacturer : "Be Forward" ,
+        model : "Obama V8" ,
+        price : 150000.00 ,
+        state : "Used" ,
+        status : "sold" ,
         body_type : "Car"
     }
 ]

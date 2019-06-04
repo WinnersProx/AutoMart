@@ -56,6 +56,19 @@ const carsController = {
         let car = carsModel.findById(req.params.car_id)
         res.status(200).send({ status : 200, data : car})
         
+    },
+    viewCars : (req, res) => {
+        let query = req.query
+        let cars = carsModel.getCars()
+        if(query.status){
+            if(query.status === 'available'){
+                cars = cars.filter((car) => {
+                    return car.status === 'available'
+                })
+            }
+            res.status(200).send({ status : 200, data : cars})
+        }
+        
     }
     
 }

@@ -9,6 +9,7 @@ routes
 .patch('/car/:car_id/status', authValidations.isAuthenticated, carsController.changeStatus)  // mark a posted car as sold
 .patch('/car/:car_id/price', authValidations.isAuthenticated, carsController.updatePrice)  // update the price of a posted car
 .get('/car/:car_id' , carsValidations.exists, carsController.viewCar)
+.get('/car' , carsController.viewCars)
 // .get('/car/:car-id/status', authValidations.isAuthenticated, carsController.createCar)  // view a specific car
 // .get('/car', authValidations.isAuthenticated, carsController.createCar)  // view all unsold car
 // // User can also view all unsold cars within a price range using queryStrings can also View all posted ads whether sold or available without any parameters
