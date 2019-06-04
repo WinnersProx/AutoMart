@@ -58,17 +58,20 @@ const carsController = {
         
     },
     viewCars : (req, res) => {
-        let query = req.query
+        let { status, min_price, max_price } = req.query
         let cars = carsModel.getCars()
-        if(query.status){
-            if(query.status === 'available'){
-                cars = cars.filter((car) => {
-                    return car.status === 'available'
-                })
-            }
-            res.status(200).send({ status : 200, data : cars})
+    
+        if(status && !(min_price && max_price)){
+            cars = cars.filter((car) => {
+                return car.status === status
+            })
         }
-        
+        else if(min_price && max_price){ // if the range is defined
+            cars = cars.filter((car) => {
+                return (car.price >= min_price && car.price <= max_price) && car.status === status 
+            })
+        } 
+        res.status(200).send({ status : 200, data : cars})
     }
     
 }
