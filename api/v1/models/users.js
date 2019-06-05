@@ -41,10 +41,13 @@ class UserModel {
     }
     createUser(newUser){
         if(!this.userExists(newUser)){
-            newUser.id = parseInt(this.getUsers().length)
-            newUser.is_admin = false
-            userStore = [...userStore, newUser]
-            return this.getUser(newUser.id)
+            if(this.validatePassword(newUser.password)){
+                newUser.id = parseInt(this.getUsers().length)
+                newUser.is_admin = false
+                userStore = [...userStore, newUser]
+                return this.getUser(newUser.id)
+            }
+            return false
         }
         else{
             user_error = "email just taken"
@@ -71,6 +74,29 @@ class UserModel {
     }
     get getAuthUser(){
         return this.findById(this.getAuth().split('.')[0])
+    }
+
+    findByEmail(email){
+        return userStore.find((found) => {
+            return found.email === email
+        })
+    }
+    validatePassword(password){
+        if(password.length >= 8 && password.length <= 30)
+            return true
+        return false
+    }
+    resetPassword(email, datas){
+        let user = this.findByEmail(email)
+        const { new_password, confirm_password } = datas
+        if(user){
+            if((new_password && confirm_password) && (new_password === confirm_password) && this.validatePassword(new_password)){
+                userStore[user.id].password = datas.new_password
+                return user
+            }
+            return false
+        }
+        return false
     }
 
 }

@@ -8,4 +8,6 @@ routes
 .post('/auth/signup', Validations.validateUser, authController.signup)
 .post('/auth/signin', Validations.validateSignin, authController.signin)
 .post('/auth/signout', Validations.isAuthenticated, authController.signout)
+.post('/auth/reset-password', authController.initializeReset)
+.post('/auth/reset-password/:reset_token', authController.resetPassword)
 export default routes;
