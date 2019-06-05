@@ -1,16 +1,20 @@
 import CarsModel from '../models/cars'
 import carsModel from '../models/cars';
 import userModel from '../models/users';
+import cloudinary from 'cloudinary'
+
+cloudinary.config({
+    cloud_name : 'wintech',
+    api_key    : '642253245865461',
+    api_secret : 'Aa8XsavnLhmh4wu2MZYpubkCDro'
+})
+
 const carsController = {
 
     createCar : (req, res) => {
-        let car = CarsModel.createCar(req.body)
+        let car = CarsModel.createCar(req)
         if(car){
-            res.status(200)
-            .send({
-                status : 200,
-                data : car
-            })
+            carsController.uploadFiles(req, res, car)
         }
         else{
             res.status(400)
@@ -20,6 +24,29 @@ const carsController = {
             })
         }
         
+    },
+    uploadFiles(req,res,car){
+        let files = req.files.pictures
+        car.pictures = []
+        if(files){
+            cloudinary.uploader.upload(files.tempFilePath, (result, err) => {
+                car.pictures.push({url : result})
+                if(!err){
+                    res.status(200)
+                    .send({
+                        status : 200,
+                        data : car
+                    })
+                }
+            })
+        }
+        else{
+            res.status(200)
+            .send({
+                status : 200,
+                data : car
+            })
+        }
     },
     changeStatus : (req, res) => {
         let car = carsModel.findById(parseInt(req.params.car_id))

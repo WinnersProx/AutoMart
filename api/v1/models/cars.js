@@ -1,6 +1,7 @@
 import UserModel from './users'
 import AuthValidations from '../middlewares/authValidation'
 import userModel from './users';
+
 let carsStock = [
     {
         id : 0 ,
@@ -11,7 +12,8 @@ let carsStock = [
         price : 80000.00 ,
         state : "new" ,
         status : "available" ,
-        body_type : "Car"
+        body_type : "Car",
+        pictures : []
     },
     {
         id : 0 ,
@@ -22,7 +24,8 @@ let carsStock = [
         price : 150000.00 ,
         state : "new" ,
         status : "available" ,
-        body_type : "Car"
+        body_type : "Car",
+        pictures : []
     }
 ]
 class CarsModel {
@@ -32,8 +35,9 @@ class CarsModel {
     getCars(){
         return carsStock
     }
-    createCar(newCar){
-        let owner = UserModel.findById(process.env.UTOKEN.split('.')[0])
+    createCar(data){
+        let newCar = data.body
+        let owner = UserModel.getAuthUser
         newCar.id = parseInt(this.getCars().length)
         newCar.created_on = new Date()
         newCar.owner = owner.id
