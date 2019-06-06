@@ -44,6 +44,7 @@ button.filterBtn{
 }
 /*  */
 header{
+    box-sizing: border-box;
     position: fixed;
     top: 0;
     height: 40px;
@@ -148,7 +149,7 @@ body{
 
 main{
     position: relative;
-    padding-top:42px;
+    padding-top:40px;
     margin: 0 80px;
 }
 main .present{
@@ -542,23 +543,19 @@ button.btn-submit{
 }
 
 @media(max-width:826px){
-    /* For tablets */
     main{
         margin: 0;
     }
     main .present{
-        /* background-size: contain; */
         height: 70vh;
     }
     /* for the header */
     
     header .branding{
-        content: "url('../pictures/favicon.png')";
         padding: .2em;
         font-size: 1.3em;
     }
     
-
     nav li a {
         padding: 0 .3em;
         font-size: 0.7em;
@@ -566,12 +563,7 @@ button.btn-submit{
     }
 
     /* for the cards */
-    .cards{
-        /*flex-direction: column;*/
-    }
-    .card{
-        /*width: 99% !important;*/
-    }
+    
     .card.view-card .card-body{
         flex-direction: column;
         position: relative;
@@ -603,22 +595,8 @@ button.btn-submit{
     .user-name{
         font-size: 1.1em;
     }
-    header{
-        height: 80px;
-        justify-content: baseline;
-        padding-bottom: 3px;
-        align-items: flex-start;
-    }
     header nav{
         padding: 0;
-    }
-    .search-bar{
-        align-self: flex-end;
-    }
-    
-    header .dropdown{
-        margin-top: 5px;
-        margin-right: 0;
     }
     .user-avatar{
         width: 20px;
@@ -633,16 +611,52 @@ button.btn-submit{
         margin: 1em .4em;
     }
 }
-@media(max-width:430px){
+@media(max-width:700px){
     header{
-        height: 60px;
-        flex-wrap: wrap-reverse;
-        padding-bottom: 3px;
-        padding-top: 7.5px;
+        height: 80px;
+        display: block;
+        padding: 0 !important;
     }
-    header .branding{
-        padding: 0 .8em;
+    .search-bar{
+        position: relative;
+        margin: 0 auto;
+        width: 90%;
     }
+    .search-bar select{
+        width: 20%;
+    }
+    .search-bar input[type="text"]{
+        width: 20%;
+    }
+    .search-bar input[type="text"].no-split{
+        width: 40%;
+    }
+    .filterBtn{
+        width: 20%;
+        height: 28px;
+        padding: 0 !important;
+    }
+    .navigation{
+        position: absolute;
+        top: 0;
+        right: 10%;
+    }
+    header .dropdown{
+        position: absolute;
+        top: 4px;
+        right: 0%;
+        margin-right:  0 !important;
+    }
+    main{
+        margin-top: 32px;
+    }
+    header .dropdown-menu{
+        top:18px;
+        margin-right: 0;
+    }
+}
+@media(max-width:479px){
+    
     header nav{
         padding-left: 7px;
         margin-top: 0px;
@@ -653,19 +667,21 @@ button.btn-submit{
     header .dropdown{
         margin-top: 0;
     }
-    header .dropdown-menu{
-        top:25px;
-        margin-right: 0;
-    }
     main{
-        margin-top: 30px;
+        margin-top: 32px;
     }
-    main .present {
-        height: 80vh;
+    .present-description {
+        font-size: 1.3em;
+    }
+    .present-texts {
+        font-size: 1.8em;
+    }
+    .search-bar{
+        width: 100%;
+        margin: 0 2px;
     }
     .search-bar input, .search-bar select {
         padding: 0.4em 1em;
-        margin: 0 .3em;
     }
     .feedback-form{
         margin: .2em;
@@ -673,44 +689,17 @@ button.btn-submit{
     .feedback-form.small {
         margin: 1em 0.2em;
     }
-}
-
-@media(max-width:372px){
-    header .branding{
-        transform: translateY(-36px);
-        font-size: 1.2em;
+    .cards{
+        flex-direction: column;
     }
-    .search-bar select{
-        transform: translateY(31px);
+    .card{
+        width: 99% !important;
+    }
+    .join-btn{
+        padding: 0 8px;
+        height: 30px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* by @Bihame Sikubwabo Vainqueur */
