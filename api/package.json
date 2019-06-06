@@ -4,8 +4,8 @@
   "description": "Api that will serve our built templates",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index --exec babel-node --presets env",
-    "test": "mocha './tests/*.spec.js'",
+    "start": "nodemon index --exec babel-node --",
+    "test": "mocha --require @babel/register ./v1/tests/*.test.js",
     "build": "babel index.js --out-dir build",
     "dev-start": "babel-watch index.js",
     "lint": "eslint"
@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/WinnersProx/AutoMart#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@babel/register": "^7.4.4",
     "bcrypt": "^3.0.6",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
@@ -32,6 +34,7 @@
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.1",
     "nodemailer": "^6.2.1",
+    "nyc": "^14.1.1",
     "random-bytes": "^1.0.0"
   },
   "devDependencies": {
