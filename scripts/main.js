@@ -58,10 +58,9 @@ fliterControl.addEventListener('change', e => {
 			inputsLength += 1
 		}
 		else{
-			console.log(searchBarInputs)
 			if(inputsLength > 1) {
 				console.log(searchBarInputs)
-				// searchBarInputs[0].classList.add('no-split')
+				searchBarInputs[0].classList.add('no-split')
 				// searchBarInputs[0].parentNode.removeChild(searchBarInputs[1])
 				// inputsLength -= 1
 			}
