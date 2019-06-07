@@ -1,6 +1,6 @@
 import chai from 'chai'
 import chaiHttp from 'chai-http'
-import app from '../../index'
+import app from '../index'
 import userModel from '../models/users'
 
 chai.use(chaiHttp)
