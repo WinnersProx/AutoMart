@@ -10,13 +10,5 @@ routes
 .patch('/car/:car_id/price', authValidations.isAuthenticated, carsController.updatePrice)  // update the price of a posted car
 .get('/car/:car_id' , carsValidations.exists, carsController.viewCar)
 .get('/car' , carsController.viewCars)
-.delete('/car/:car_id', authValidations.isAuthenticated, carsValidations.exists, carsController.deleteCar) // delete a posted car ad
-// .get('/car/:car-id/status', authValidations.isAuthenticated, carsController.createCar)  // view a specific car
-// .get('/car', authValidations.isAuthenticated, carsController.createCar)  // view all unsold car
-// // User can also view all unsold cars within a price range using queryStrings can also View all posted ads whether sold or available without any parameters
-// .post('/flag', authValidations.isAuthenticated, carsController.createCar) // flag or report a posted AD as fraudulent.
-// GET car?status=available&state=new View all unsold cars of a specific make (manufacturer)
-// GET /car?status=available&state=used View all unsold cars of a specific make (manufacturer).
-// GET /car?status=available&manufacturer= XXXValue View all unsold cars of a specific make (manufacturer).
-// GET /car?body_type= bodyType View all cars of a specific body type.
+.delete('/car/:car_id', authValidations.isAuthenticated, carsValidations.exists, carsController.deleteCar)
 export default routes;

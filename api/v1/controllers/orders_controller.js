@@ -4,9 +4,9 @@ const ordersController = {
     newOrder : (req, res) => {
         let order = ordersModel.createOrder(req.body)
         if(order){
-            res.status(200)
+            res.status(201)
             .send({
-                status : 200,
+                status : 201,
                 data : order
             })
         }

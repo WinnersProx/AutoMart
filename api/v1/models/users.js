@@ -25,7 +25,7 @@ let authenticated = [
 ]
 
 class UserModel {
-    // list all the users
+
     authenticate(token){
         authenticated[0].UTOKEN = token
     }
@@ -82,7 +82,7 @@ class UserModel {
         })
     }
     validatePassword(password){
-        if(password.length >= 8 && password.length <= 30)
+        if(password.length >= 6 && password.length <= 30)
             return true
         return false
     }

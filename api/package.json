@@ -4,8 +4,8 @@
   "description": "Api that will serve our built templates",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index --exec babel-node --presets env",
-    "test": "mocha './tests/*.spec.js'",
+    "start": "nodemon index --exec babel-node --presets @babel/preset-env",
+    "test": "mocha --require @babel/register v1/tests/*",
     "build": "babel index.js --out-dir build",
     "dev-start": "babel-watch index.js",
     "lint": "eslint"
@@ -21,6 +21,12 @@
   },
   "homepage": "https://github.com/WinnersProx/AutoMart#readme",
   "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
     "bcrypt": "^3.0.6",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
@@ -35,11 +41,7 @@
     "random-bytes": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "babel-watch": "^7.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
