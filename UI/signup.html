@@ -13,15 +13,14 @@
     <header>
         <div class="branding"><a href="./" class="primary">AutoMart</a></div>
         <div class="search-bar">
-            <input type="text" placeholder="Type your search here or filter...">
-        </div>
-        <div class="search-bar">
-            <label for="filter"> Filter </label>
             <select name="filter" id="filter">
+                <option value="">Filter by</option>
                 <option value="price-range">Price range</option>
                 <option value="state">State</option>
                 <option value="state">Manufacturer</option>
             </select>
+            <input type="text" class="text-filter no-split" placeholder="Type your search here or filter...">
+            <button class="filterBtn">Filter</button>
         </div>
         <nav class="navigation">
             <li>
@@ -31,10 +30,18 @@
                 <a href="./signin.html">Sign in</a>
             </li>
         </nav>
+        <div class="dropdown">
+            <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
+            <ul class="dropdown-menu">
+                    <li><a href="./admin.html">Admin Panel</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="./signin.html">Logout</a></li>
+            </ul>
+        </div>
     </header>
     <main>
        <div class="feedback-form">
-            <form action="">
+            <form action="./profile.html">
                 <label for="fname">First Name<span class="danger"> &ast;</span></label>
                 <input type="text" id="fname" name="first_name" placeholder="Your firstname">
                 <label for="lname">Last Name<span class="danger"> &ast;</span></label>

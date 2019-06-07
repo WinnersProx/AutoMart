@@ -1,0 +1,10 @@
+language : node_js
+node_js :
+  - node
+cache:
+  directories:
+    - 'node_modules'
+script :
+  - npm test
+after_script :
+  - npm install coveralls && npm run coverage

@@ -2,7 +2,7 @@
 :root{
     --primary   : #3e7cfb;
     --light     : #ffff;
-    --secondary : #bc34ff;
+    --secondary : #2ab9ff;
     --dark      : rgb(0,0,0);
     --danger    : rgba(255,0,0,1);
 }
@@ -38,8 +38,13 @@ button{
 button:focus{
     outline: none;
 }
+button.filterBtn{
+    padding: .45em 2em;
+    border-radius: 4px !important;
+}
 /*  */
 header{
+    box-sizing: border-box;
     position: fixed;
     top: 0;
     height: 40px;
@@ -51,6 +56,7 @@ header{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    transition: all .5s ease-in-out;
 }
 header .dropdown{
     margin-right: 20px;
@@ -73,21 +79,27 @@ header .branding{
 .btn-secondary{
     background: var(--secondary) !important; 
 }
+
 .search-bar input, .search-bar select{
     background: rgba(246, 252, 238, 1);
     padding: .6em 1.2em;
     font-family: sans-serif;
     font-size: .8em;
-    width: 300px;
+    width: 100px;
     border-radius: 1.1em;
     box-shadow: none;
     border: 1px dashed var(--primary);
     outline: none;
 }
+.search-bar input[type="text"].no-split{
+    width: 200px;
+}
+
 .search-bar select{
     width: inherit;
     border-style: solid;
     font-size: .8em;
+    border-radius: 4px !important;
 }
 label:not(.uploader){
     font-family: sans-serif;
@@ -137,7 +149,7 @@ body{
 
 main{
     position: relative;
-    padding-top:42px;
+    padding-top:40px;
     margin: 0 80px;
 }
 main .present{
@@ -146,25 +158,28 @@ main .present{
     font-family: sans-serif;
     text-align: center;
     background: url("../pictures/automart.png");
+    background-color: #1e1d21;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 85vh;
+    /*padding: 0 2em;*/
+    box-sizing: border-box;
 }
 .present-texts{
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2.5em;
     padding-top: 15%;
 }
 .present-description{
-    font-size: 1.2em;
-    background:rgba(0,0,0,.3);
+    font-size: 1.4em;
     padding: .5em 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .join-btn{
     padding: .6em 6em;
     margin-top: 2em;
+    background: rgba(72, 61, 162, 1);
 }
 /* Design of the landing page */
 
@@ -527,27 +542,20 @@ button.btn-submit{
     
 }
 
-@media(max-width:700px){
-    /* For tablets */
+@media(max-width:826px){
     main{
         margin: 0;
     }
     main .present{
-        /* background-size: contain; */
         height: 70vh;
     }
     /* for the header */
-    .search-bar input{
-        width: 100px;
-    }
     
     header .branding{
-        content: "url('../pictures/favicon.png')";
         padding: .2em;
-        font-size: 1.1em;
+        font-size: 1.3em;
     }
     
-
     nav li a {
         padding: 0 .3em;
         font-size: 0.7em;
@@ -555,12 +563,7 @@ button.btn-submit{
     }
 
     /* for the cards */
-    .cards{
-        flex-direction: column;
-    }
-    .card{
-        width: 99% !important;
-    }
+    
     .card.view-card .card-body{
         flex-direction: column;
         position: relative;
@@ -592,20 +595,8 @@ button.btn-submit{
     .user-name{
         font-size: 1.1em;
     }
-    
     header nav{
         padding: 0;
-    }
-    .search-bar label{
-        display: none;
-    }
-    .search-bar input, .search-bar select{
-        padding:0.4em 1em;
-        margin: 0 .1em;
-    }
-    header .dropdown{
-        margin-top: 5px;
-        margin-right: 0;
     }
     .user-avatar{
         width: 20px;
@@ -620,16 +611,52 @@ button.btn-submit{
         margin: 1em .4em;
     }
 }
-@media(max-width:430px){
+@media(max-width:700px){
     header{
-        height: 60px;
-        flex-wrap: wrap-reverse;
-        padding-bottom: 3px;
-        padding-top: 7.5px;
+        height: 80px;
+        display: block;
+        padding: 0 !important;
     }
-    header .branding{
-        padding: 0 .8em;
+    .search-bar{
+        position: relative;
+        margin: 0 auto;
+        width: 90%;
     }
+    .search-bar select{
+        width: 20%;
+    }
+    .search-bar input[type="text"]{
+        width: 20%;
+    }
+    .search-bar input[type="text"].no-split{
+        width: 40%;
+    }
+    .filterBtn{
+        width: 20%;
+        height: 28px;
+        padding: 0 !important;
+    }
+    .navigation{
+        position: absolute;
+        top: 0;
+        right: 10%;
+    }
+    header .dropdown{
+        position: absolute;
+        top: 4px;
+        right: 0%;
+        margin-right:  0 !important;
+    }
+    main{
+        margin-top: 32px;
+    }
+    header .dropdown-menu{
+        top:18px;
+        margin-right: 0;
+    }
+}
+@media(max-width:479px){
+    
     header nav{
         padding-left: 7px;
         margin-top: 0px;
@@ -640,19 +667,21 @@ button.btn-submit{
     header .dropdown{
         margin-top: 0;
     }
-    header .dropdown-menu{
-        top:25px;
-        margin-right: 0;
-    }
     main{
-        margin-top: 30px;
+        margin-top: 32px;
     }
-    main .present {
-        height: 80vh;
+    .present-description {
+        font-size: 1.3em;
+    }
+    .present-texts {
+        font-size: 1.8em;
+    }
+    .search-bar{
+        width: 100%;
+        margin: 0 2px;
     }
     .search-bar input, .search-bar select {
         padding: 0.4em 1em;
-        margin: 0 .3em;
     }
     .feedback-form{
         margin: .2em;
@@ -660,44 +689,17 @@ button.btn-submit{
     .feedback-form.small {
         margin: 1em 0.2em;
     }
-}
-
-@media(max-width:372px){
-    header .branding{
-        transform: translateY(-36px);
-        font-size: 1.2em;
+    .cards{
+        flex-direction: column;
     }
-    .search-bar select{
-        transform: translateY(31px);
+    .card{
+        width: 99% !important;
+    }
+    .join-btn{
+        padding: 0 8px;
+        height: 30px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* by @Bihame Sikubwabo Vainqueur */
