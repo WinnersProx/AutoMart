@@ -29,6 +29,7 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "bcrypt": "^3.0.6",
+    "braces": "^2.3.1",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cloudinary": "^1.14.0",
