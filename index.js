@@ -2,7 +2,7 @@ import express from 'express'
 import apiRouter from './routes/'
 import fileUpload from 'express-fileupload'
 const app = express()
-const PORT = 8000 || process.env.PORT
+const PORT = process.env.PORT || 8000
 // some middlewares
 app.use(express.urlencoded({extended : false}))
 app.use(fileUpload({
