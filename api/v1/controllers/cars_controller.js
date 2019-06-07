@@ -26,24 +26,24 @@ const carsController = {
         
     },
     uploadFiles(req,res,car){
-        let files = req.files.pictures
+        let files = !req.files ? null : req.files.pictures
         car.pictures = []
         if(files){
             cloudinary.uploader.upload(files.tempFilePath, (result, err) => {
                 car.pictures.push({url : result})
                 if(!err){
-                    res.status(200)
+                    res.status(201)
                     .send({
-                        status : 200,
+                        status : 201,
                         data : car
                     })
                 }
             })
         }
         else{
-            res.status(200)
+            res.status(201)
             .send({
-                status : 200,
+                status : 201,
                 data : car
             })
         }

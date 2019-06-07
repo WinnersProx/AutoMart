@@ -7,9 +7,9 @@ const authController = {
         let user = userModel.createUser(req.body)
         if(user){
             authController.authenticate(user)
-            res.status(200)
+            res.status(201)
             .send({
-                status : 200,
+                status : 201,
                 data : user
             })
         }

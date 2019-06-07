@@ -59,7 +59,7 @@ class CarsModel {
     updateCarPrice(car_id, data){
         let target = this.findById(parseInt(car_id))
         if(target && this.isOwner(userModel.getAuthUser.id, target)){
-            target.price = data.amount
+            carsStock[target.id].price = data.amount
             return target
         }
         return false
