@@ -4,8 +4,6 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/b757ade85df2231ebb64/maintainability)](https://codeclimate.com/github/WinnersProx/AutoMart/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/b757ade85df2231ebb64/test_coverage)](https://codeclimate.com/github/WinnersProx/AutoMart/test_coverage)
-
  A market place for both selling and buying automobiles for solving multiple issues that face dealers and buyers at the market (Our sight is to serve you with the best quality of services).
 
 ## Documentation
