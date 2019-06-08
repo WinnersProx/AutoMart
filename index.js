@@ -8,9 +8,6 @@ app.use(express.urlencoded({extended : false}))
 app.use(fileUpload({
     useTempFiles : true
 }))
-app.get('/', (req, res) => {
-    res.send('Welcome to the AutoMart api')
-})
 app.use(apiRouter)
 
 app.listen(PORT, () => {

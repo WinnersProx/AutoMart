@@ -10,5 +10,8 @@ router.use('/', authRouter)
 router.use('/', carsRouter)
 router.use('/', ordersRouter)
 router.use('/', flagsRouter)
+router.get('/', (req, res) => {
+    res.send({message : 'Welcome to the AutoMart api feel home'})
+})
 
 export default router

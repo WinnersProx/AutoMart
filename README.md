@@ -1,13 +1,14 @@
 ## AUTOMART PROJECT API
 
-[![Coverage Status](https://coveralls.io/repos/github/WinnersProx/AutoMart/badge.svg?branch=develop)](https://coveralls.io/github/WinnersProx/AutoMart?branch=develop)
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/b757ade85df2231ebb64/maintainability)](https://codeclimate.com/github/WinnersProx/AutoMart/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/WinnersProx/AutoMart/badge.svg?branch=develop)](https://coveralls.io/github/WinnersProx/AutoMart?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/b757ade85df2231ebb64/maintainability)](https://codeclimate.com/github/WinnersProx/AutoMart/maintainability)
 
  A market place for both selling and buying automobiles for solving multiple issues that face dealers and buyers at the market (Our sight is to serve you with the best quality of services).
 
 ## Documentation
-Comprehensive documentation for the API is hosted [here](swagger_url).
+Comprehensive documentation for the API is hosted [here](https://winner1.docs.apiary.io/#reference).
+
+## Deployment
+This app his hosted on heroku [here](https://winners-automart.herokuapp.com/api/v1)
 
 ## Features
 - Users can sign up or register.
@@ -41,7 +42,7 @@ Tools used for development of this API are;
 ## Getting Started
 1. Clone the github repository [here](https://github.com/WinnersProx/AutoMart), 
 
-2. Install all the dependencies by running the following command in your command line interface shifting firstly in the [/api] directory where the package.json file resides
+2. Install all the dependencies by running the following command in your command line interface
 
 ```sh
     $ npm install
@@ -58,6 +59,9 @@ To run the tests and make sure that all api endpoints are working perfectly just
    $ npm test 
  ``` 
 if the stated commands are not succesful try to install all the development dependencies to fix it
+
+#Learning resources
+- (http://dsernst.com/2015/09/02/node-mocha-travis-istanbul-coveralls-unit-tests-coverage-for-your-open-source-project/)
 
 # Contributor
 - Bihame Sikubwabo Vainqueur
