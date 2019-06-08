@@ -1,6 +1,6 @@
 ## AUTOMART PROJECT API
 
-[![Coverage Status](https://coveralls.io/repos/github/WinnersProx/AutoMart/badge.svg?branch=master)](https://coveralls.io/github/WinnersProx/AutoMart?branch=api-endpoints)
+[![Coverage Status](https://coveralls.io/repos/github/WinnersProx/AutoMart/badge.svg?branch=develop)](https://coveralls.io/github/WinnersProx/AutoMart?branch=develop)
 
  A market place for both selling and buying automobiles for solving multiple issues that face dealers and buyers at the market (Our sight is to serve you with the best quality of services).
 
