@@ -2,7 +2,7 @@
   "nyc": {
     "all": true,
     "include": [
-      "**"
+      "*.test.js"
     ]
   }
 }

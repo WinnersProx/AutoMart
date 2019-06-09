@@ -8,7 +8,7 @@
 Comprehensive documentation for the API is hosted [here](https://winner1.docs.apiary.io/#reference).
 
 ## Deployment
-This app his hosted on heroku [here](https://winners-automart.herokuapp.com/api/v1)
+This app his hosted on heroku [here](https://winners-automart.herokuapp.com)
 
 ## Features
 - Users can sign up or register.

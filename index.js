@@ -1,5 +1,5 @@
 import express from 'express'
-import apiRouter from './routes/'
+import apiRouter from './server/routes/'
 import fileUpload from 'express-fileupload'
 const app = express()
 const PORT = process.env.PORT || 8000

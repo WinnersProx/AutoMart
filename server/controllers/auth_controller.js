@@ -1,6 +1,5 @@
 import userModel from '../models/users'
 import randomBytes from 'random-bytes'
-import nodeMailer from 'nodemailer'
 const authController = {
 
     signup : (req, res) => {
