@@ -1,5 +1,5 @@
 {
-  "name": "automart-project",
+  "name": "automart-api-endpoints",
   "version": "1.0.0",
   "description": "Api that will serve our built templates",
   "main": "index.js",
@@ -36,12 +36,15 @@
     "cors": "^2.8.5",
     "coveralls": "^3.0.4",
     "crypto": "^1.0.1",
+    "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-fileupload": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.1",
     "nodemailer": "^6.2.1",
     "nyc": "^14.1.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "random-bytes": "^1.0.0"
   },
   "devDependencies": {

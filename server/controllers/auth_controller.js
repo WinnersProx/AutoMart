@@ -1,7 +1,17 @@
 import userModel from '../models/users'
 import randomBytes from 'random-bytes'
+import jwt from 'jsonwebtoken'
 const authController = {
-
+    authenticate : (user) => {
+        const token = jwt.sign({
+            email : user.email,
+            id    : user.id
+        }, process.env.SECRET_KEY,
+        {
+            expiresIn : "1h"
+        })
+        user.token = token
+    },
     signup : (req, res) => {
         let user = userModel.createUser(req.body)
         if(user){
@@ -40,19 +50,12 @@ const authController = {
         }
     },
     signout : (req, res) => {
-        userModel.authenticate(null)
         res.status(200).send({
             message : "User logged out successfully",
             status : 200
         })
     },
-    authenticate : (user) => {
-        let token = ((user.id) + '.' + randomBytes.sync(8).toString('hex').toUpperCase())
-        process.env.UTOKEN = token 
-        user.token = token;
-        userModel.authenticate(user.token)
-        return user;
-    },
+    
     initializeReset : (req, res) => {
         const { email } = req.body
         if(email){

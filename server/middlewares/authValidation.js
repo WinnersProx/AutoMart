@@ -1,4 +1,5 @@
 import UserModel from '../models/users'
+import passport from 'passport'
 let errors = []
 const AuthValidations = {
     validateUser : (req, res, next) => {
@@ -57,12 +58,14 @@ const AuthValidations = {
         errors = []
     },
     isAuthenticated : (req, res, next) => {
-        const authorization = req.headers.authorization
-        let user = UserModel.findById(authorization.split('.')[0])
-
-        if(!user || !(authorization === UserModel.getAuth())){
-            res.status(401).send({ status : 401, message : "Invalid token"})
-        }
+        passport.authenticate('jwt', (err, user, info) => {
+            if(!err){
+                if(!user){
+                    res.status(401).send({ status : 401, message : "You must be logged in"})
+                }
+            }
+            res.status(400).send({ status : 401, message : "Sorry something went wrong, try again!"})
+        })
         next()
     }
     
