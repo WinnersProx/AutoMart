@@ -1,5 +1,6 @@
 // should have an id, email, firstname, last_name, password, address and is_admin properties
 import bcrypt from 'bcrypt'
+import passport from 'passport'
 global.user_error = "Error occured"
 let userStore = [
     {
@@ -7,7 +8,7 @@ let userStore = [
         email : 'bihames4vainqueur@gmail.com' ,
         first_name : 'Bihame' ,
         last_name : 'Vainqueur' ,
-        password : 'secret' ,
+        password : '$2b$10$KBI3hZ8aKqXiQPkQk0XPOeuaXY7r6QIO.EdJSylkdxgpFRFOuA4vq' ,
         address : 'Kigali Kabeza' ,
         is_admin : true 
     },
@@ -16,7 +17,7 @@ let userStore = [
         email : 'johndoe@gmail.com' ,
         first_name : 'John' ,
         last_name : 'Doe' ,
-        password : 'secret' ,
+        password : '$2b$10$KBI3hZ8aKqXiQPkQk0XPOeuaXY7r6QIO.EdJSylkdxgpFRFOuA4vq' ,
         address : 'Annonymous City' ,
         is_admin : true 
     }
@@ -25,7 +26,9 @@ let userStore = [
 class UserModel {
 
     getAuth(){
-        return authenticated[0].UTOKEN
+        return passport.authenticate('jwt', (err, user, info) => {
+            return !user ? false : user
+        })
     }
     getUsers(){
         return userStore
@@ -49,12 +52,10 @@ class UserModel {
             user_error = "email just taken"
             return false
         }
-        
-        
     }
     findUser(user){
         return userStore.find((found) => {
-            return found.email === user.email && found.password === user.password
+            return found.email === user.email && bcrypt.compareSync(user.password, found.password)
         })
     }
     findById(userId){
@@ -69,7 +70,9 @@ class UserModel {
         })
     }
     get getAuthUser(){
-        return this.findById(this.getAuth().split('.')[0])
+        return passport.authenticate('jwt', (err, user, info) => {
+            return !user ? false : user
+        })
     }
 
     findByEmail(email){
