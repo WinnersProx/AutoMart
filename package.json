@@ -1,5 +1,5 @@
 {
-  "name": "automart-api-endpoints",
+  "name": "automart-project",
   "version": "1.0.0",
   "description": "Api that will serve our built templates",
   "main": "index.js",
