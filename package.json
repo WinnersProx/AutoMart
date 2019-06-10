@@ -50,6 +50,8 @@
     "random-bytes": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/node": "^7.4.5",
+    "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-watch": "^7.0.0",
     "eslint": "^5.16.0",
