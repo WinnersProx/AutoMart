@@ -1,11 +1,12 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 import apiRouter from './server/routes/'
 import fileUpload from 'express-fileupload'
-import authentication from './server/middlewares/authentication'
 const app = express()
 const PORT = process.env.PORT || 8000
 // some middlewares
-app.use(authentication.initialize())
+
 app.use(express.urlencoded({extended : false}))
 app.use(fileUpload({
     useTempFiles : true

@@ -1,7 +1,8 @@
 // should have an id, email, firstname, last_name, password, address and is_admin properties
 import bcrypt from 'bcrypt'
-import passport from 'passport'
+
 global.user_error = "Error occured"
+let authenticated = {}
 let userStore = [
     {
         id : 0 ,
@@ -26,9 +27,7 @@ let userStore = [
 class UserModel {
 
     getAuth(){
-        return passport.authenticate('jwt', (err, user, info) => {
-            return !user ? false : user
-        })
+        return process.env.AUTH_USER
     }
     getUsers(){
         return userStore
@@ -69,12 +68,12 @@ class UserModel {
             return found.email === user.email
         })
     }
-    get getAuthUser(){
-        return passport.authenticate('jwt', (err, user, info) => {
-            return !user ? false : user
-        })
+    setAuthUser(auth){
+        authenticated = auth
     }
-
+    get getAuthUser(){
+        return authenticated
+    }
     findByEmail(email){
         return userStore.find((found) => {
             return found.email === email
@@ -97,6 +96,7 @@ class UserModel {
         }
         return false
     }
+
 
 }
 const userModel = new UserModel()

@@ -1,5 +1,6 @@
-import UserModel from '../models/users'
-import passport from 'passport'
+import jwtDecode from 'jwt-decode'
+import userModel from '../models/users';
+
 let errors = []
 const AuthValidations = {
     validateUser : (req, res, next) => {
@@ -58,14 +59,12 @@ const AuthValidations = {
         errors = []
     },
     isAuthenticated : (req, res, next) => {
-        passport.authenticate('jwt', (err, user, info) => {
-            if(!err){
-                if(!user){
-                    res.status(401).send({ status : 401, message : "You must be logged in"})
-                }
-            }
-            res.status(400).send({ status : 401, message : "Sorry something went wrong, try again!"})
-        })
+        let auth = req.headers.authorization ? req.headers.authorization.split(' ') : null
+        if(auth && auth[0] === 'Bearer' && auth.length === 2){
+            let user = userModel.findById(jwtDecode(auth[1]).id)
+            if(!user) res.status(403).send({ status : 403, message : "You must login to access this location"})
+            userModel.setAuthUser(user)
+        }
         next()
     }
     
