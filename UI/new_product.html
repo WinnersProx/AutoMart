@@ -8,28 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
     <link rel="shortcut icon" href="./pictures/favicon.png" id="favicon">
+    <link rel="stylesheet" type="text/css" href="./styles/forms.css">
 </head>
 <body>
     <header>
         <div class="branding"><a href="./" class="primary">AutoMart</a></div>
-        <div class="search-bar">
-            <select name="filter" id="filter">
-                <option value="">Filter by</option>
-                <option value="price-range">Price range</option>
-                <option value="state">State</option>
-                <option value="state">Manufacturer</option>
-            </select>
-            <input type="text" class="text-filter no-split" placeholder="Type your search here or filter...">
-            <button class="filterBtn">Filter</button>
-        </div>
-        <nav class="navigation">
-            <li>
-                <a href="./signup.html">Sign up</a>
-            </li>
-            <li>
-                <a href="./signin.html">Sign in</a>
-            </li>
-        </nav>
         <div class="dropdown">
             <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
             <ul class="dropdown-menu">
@@ -42,33 +25,58 @@
     <main>
        <div class="feedback-form">
             <form action="./index.html" method="POST">
-                <label for="manufacturer">Manufacturer <span class="danger"> &ast;</span></label>
-                <input type="text" id="manufacturer" name="manufacturer" placeholder="The car manufacturer">
-                <label for="model">Model <span class="danger"> &ast;</span></label>
-                <input type="text" id="model" name="model" placeholder="The car model">
-                <label for="state">State<span class="danger"> &ast;</span></label>
-                <select name="state" id="state">
-                    <option value="new">Brand new</option>
-                    <option value="used">Used</option>
-                </select>
-                <label for="price">Price<span class="danger"> &ast;</span></label>
-                <input type="number" id="price" name="price" placeholder="The car price">
-                <label for="body_type">Body type<span class="danger"> &ast;</span></label>
-                <select name="body_type" id="body_type">
-                    <option value="car">Car</option>
-                    <option value="truck">Truck</option>
-                    <option value="trailer">Trailer</option>
-                    <option value="van">Van</option>
-                </select>
-                <label class="btn-submit btn-secondary uploader btn light">
+                <div class="feedback-f-header">
+                    <h2>Add a product</h2>
+                </div>
+                <div class="feedback-f-body">
+                    <input type="text" id="manufacturer" name="manufacturer" placeholder="Manufacturer">
+                    <input type="text" id="model" name="model" placeholder="Model">
+                    <label for="state">State<span class="danger"> &ast;</span></label>
+                    <select name="state" id="state" placeholder="State">
+                        <option value="new">Brand new</option>
+                        <option value="used">Used</option>
+                    </select>
+                    <input type="number" id="price" name="price" placeholder="Price">
+                    <label for="body_type">Body type<span class="danger"> &ast;</span></label>
+                    <select name="body_type" id="body_type">
+                        <option value="car">Car</option>
+                        <option value="truck">Truck</option>
+                        <option value="trailer">Trailer</option>
+                        <option value="van">Van</option>
+                    </select>
+                    <label class="btn-submit btn-secondary uploader btn light">
                     Add Pictures
                     <input type="file" name="ad_pictures" class="img-uploader" accept="img/.*" multiple="true">
                 </label>
                 <button type="submit" class="btn-submit">Post this car ad</button>
+                </div>
+                
             </form>
        </div>
     </main>
     <footer>
+        <div class="ft-sections">
+            <div class="col">
+                <h3>Our services</h3>
+                <div class="ft-description">We provide you the best </div><br>
+                <li>Ads services</li>
+                <li>purchase orders</li>
+                <li>and other amazing things</li>
+            </div>
+            <div class="col">
+                <h3>Contacts</h3>
+                <div class="ft-description">Join us on :</div><br>
+                <li>Whatsapp : +2507809102538</li>
+                <li>Facebook : <a href="https://facebook.com">here</a></li>
+            </div>
+            <div class="col">
+                <h3>Addresses</h3>
+                <div class="ft-description">
+                    Rwanda Kigali, Congo Drc Kinshasa, Kenya Nairobi , Nigeria Lagos
+                </div>
+            </div>
+        </div>
+        <div class="copyright">AutoMart Project &copy;2019</div>
         <div class="scroller">
             <div class="toggler arrow-up"></div>
         </div>

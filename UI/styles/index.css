@@ -1,0 +1,43 @@
+main .present{
+    color: var(--light);
+    position: relative;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #1e1d21;
+    width: 100%;
+    height: 95vh;
+    box-sizing: border-box; 
+}
+main .present img.land-image{
+    width: 100%;
+    height: 95vh;
+}
+main .present .image-cover{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4)
+}
+main .descriptions{
+    position: absolute;
+    top: 30vh;
+    width: 100%;
+}
+.present-texts{
+    position: relative;
+    font-weight: bold;
+    font-size: 2.5em;
+}
+.present-description{
+    text-align: center;
+    font-size: 1.4em;
+    padding: .5em 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.join-btn{
+    padding: .6em 6em;
+    margin-top: 2em;
+    background: rgba(72, 61, 162, 1);
+}
+/* Design of the landing page */

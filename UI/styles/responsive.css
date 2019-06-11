@@ -1,0 +1,175 @@
+/* This is all about responsiveness of the user interface */
+@media(max-width:1000px){
+    /* for the header */
+    .search-bar input{
+        width: 150px;
+    }
+    header .branding{
+        padding: 0 1em;
+    }
+    /* for the header */
+    .search-bar input{
+        width: 100px;
+    }
+    
+    header .branding{
+        padding: 0 .5em;
+    }
+
+    /* for the cards */
+    .card{
+        width: 49% !important;
+    }
+    .card.view-card{
+        width: 100% !important;
+    }
+    
+}
+
+@media(max-width:826px){
+    
+    /* for the header */
+    
+    header .branding{
+        padding: .2em;
+        font-size: 1.3em;
+    }
+    
+    nav li a {
+        padding: 0 .3em;
+        font-size: 0.7em;
+        font-weight: normal;
+    }
+
+    /* for the cards */
+    
+    .card.view-card .card-body{
+        flex-direction: column;
+        position: relative;
+        height: auto;
+    }
+    .card.view-card .card-body .car-images{
+        width: calc(100% - .9em);
+    }
+    .card.view-card .view-card-infos{
+        width: 90%;
+    }
+    /* for the profile */
+    .profile{
+        margin: .9em .2em;
+        flex-wrap: wrap;
+    }
+    .profile-box{
+        width: 99%;
+        height: 200px;
+        margin-bottom: .4em;
+    }
+    .profile-infos{
+        width: 99%;
+    }
+    .profile-cover{
+        background-size: cover;
+        padding-top: 1.2em;
+    }
+    .user-name{
+        font-size: 1.1em;
+    }
+    header nav{
+        padding: 0;
+    }
+    .user-avatar{
+        width: 20px;
+        height: 20px;
+        margin-right: .5em;
+    }
+    .feedback-form{
+        width: 93%;
+        margin: .4em;
+    }
+    .feedback-form.small{
+        margin: 1em .4em;
+    }
+}
+@media(max-width:700px){
+    header{
+        height: 80px;
+        display: block;
+        padding: 0 !important;
+    }
+    .search-bar{
+        position: relative;
+        margin: 0 auto;
+        width: 90%;
+    }
+    .search-bar select{
+        width: 20%;
+    }
+    .search-bar input[type="text"]{
+        width: 20%;
+    }
+    .search-bar input[type="text"].no-split{
+        width: 40%;
+    }
+    .filterBtn{
+        width: 20%;
+        height: 28px;
+        padding: 0 !important;
+    }
+    .navigation{
+        position: absolute;
+        top: 0;
+        right: 10%;
+    }
+    header .dropdown{
+        position: absolute;
+        top: 4px;
+        right: 0%;
+        margin-right:  0 !important;
+    }
+    header .dropdown-menu{
+        top:18px;
+        margin-right: 0;
+    }
+}
+@media(max-width:479px){
+    
+    header nav{
+        padding-left: 7px;
+        margin-top: 0px;
+    }
+    nav li a {
+        font-size: 0.8em;
+    }
+    header .dropdown{
+        margin-top: 0;
+    }
+    .present-description {
+        font-size: 1.3em;
+    }
+    .present-texts {
+        font-size: 1.8em;
+    }
+    .search-bar{
+        width: 100%;
+        margin: 0 2px;
+    }
+    .search-bar input, .search-bar select {
+        padding: 0.4em 1em;
+    }
+    .feedback-form{
+        margin: .2em;
+    }
+    .feedback-form.small {
+        margin: 1em 0.2em;
+    }
+    .cards{
+        flex-direction: column;
+    }
+    .card{
+        width: 99% !important;
+    }
+    .join-btn{
+        padding: 0 8px;
+        height: 30px;
+    }
+}

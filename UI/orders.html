@@ -6,29 +6,13 @@
     <title>AutoMart | Purchase orders</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/cards.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/responsive.css">
     <link rel="shortcut icon" href="./pictures/favicon.png" id="favicon">
 </head>
 <body>
     <header>
         <div class="branding"><a href="./" class="primary">AutoMart</a></div>
-        <div class="search-bar">
-            <select name="filter" id="filter">
-                <option value="">Filter by</option>
-                <option value="price-range">Price range</option>
-                <option value="state">State</option>
-                <option value="state">Manufacturer</option>
-            </select>
-            <input type="text" class="text-filter no-split" placeholder="Type your search here or filter...">
-            <button class="filterBtn">Filter</button>
-        </div>
-        <nav class="navigation">
-            <li>
-                <a href="./signup.html">Sign up</a>
-            </li>
-            <li>
-                <a href="./signin.html">Sign in</a>
-            </li>
-        </nav>
         <div class="dropdown">
             <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
             <ul class="dropdown-menu">
@@ -39,126 +23,124 @@
         </div>
     </header>
     <main>
-       <div class="profile">
-           <div class="profile-box">
-               <div class="profile-cover">
-                    <img src="./pictures/default_avatar.png" alt="user avatar" class="avatar">
-               </div>
-               <div class="user-name bolder primary">
-                    Bihame Vainqueur
-               </div>
-           </div>
-           <div class="profile-infos">
-               <nav class="profile-nav">
-                   <li>
-                       <a href="./profile.html">My Post Ads(0)</a>
-                   </li>
-                   <li>
-                        <a href="./orders.html">My Orders(5)</a>
-                   </li>
-                   <li>
-                        <a href="./new_product.html">&plus; New Post Ad</a>
-                   </li>
-               </nav>
-               <div class="cards">
-                    <div class="card">
-                         <div class="card-header">
-                             <div class="model">Model Name</div>
-                             <div class="price">Amount : 15.000.00 $</div>
-                             <span class="secondary">pending</span>
-                             <div class="dropdown">
-                                <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
-                                <ul class="dropdown-menu">
-                                    <li> 
-                                        <a href="./update_order.html" class="dropdown-link">Update</a>
-                                    </li>
-                                </ul>
-                            </div>
-                         </div>
-                         <div class="card-body">
-                             <div class="car-images">
-                                 <img src="./pictures/3.jpg" alt="">
-                             </div>
-                         </div>
-                         <div class="card-footer">
-                            <button class="view"><a href="./show.html">View</a></button>
-                         </div>
+       <div class="cards">
+            <div class="card">
+                 <div class="card-header">
+                     <div class="model">Model Name</div>
+                     <div class="price">Amount : 15.000.00 $</div>
+                     <span class="secondary">pending</span>
+                     <div class="dropdown">
+                        <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
+                        <ul class="dropdown-menu">
+                            <li> 
+                                <a href="./update_order.html" class="dropdown-link">Update</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="card">
-                         <div class="card-header">
-                             <div class="model">Model Name</div>
-                             <div class="price">Amount : 18.000.00 $</div>
-                             <span class="primary">Accepted</span>
-                             <div class="dropdown">
-                                <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
-                                <ul class="dropdown-menu">
-                                    <li> 
-                                        <a href="./update_order.html" class="dropdown-link">Update</a>
-                                    </li>
-                                </ul>
-                             </div>
-                         </div>
-                         <div class="card-body">
-                             <div class="car-images">
-                                 <img src="./pictures/1.jpg" alt="">
-                             </div>
-                         </div>
-                         <div class="card-footer">
-                             <button class="view"><a href="./show.html">View</a></button>
-                         </div>
+                 </div>
+                 <div class="card-body">
+                     <div class="car-images">
+                         <img src="./pictures/3.jpg" alt="">
+                     </div>
+                 </div>
+                 <div class="card-footer">
+                    <button class="view"><a href="./show.html">View</a></button>
+                 </div>
+            </div>
+            <div class="card">
+                 <div class="card-header">
+                     <div class="model">Model Name</div>
+                     <div class="price">Amount : 18.000.00 $</div>
+                     <span class="primary">Accepted</span>
+                     <div class="dropdown">
+                        <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
+                        <ul class="dropdown-menu">
+                            <li> 
+                                <a href="./update_order.html" class="dropdown-link">Update</a>
+                            </li>
+                        </ul>
+                     </div>
+                 </div>
+                 <div class="card-body">
+                     <div class="car-images">
+                         <img src="./pictures/1.jpg" alt="">
+                     </div>
+                 </div>
+                 <div class="card-footer">
+                     <button class="view"><a href="./show.html">View</a></button>
+                 </div>
+            </div>
+            <div class="card">
+                 <div class="card-header">
+                     <div class="model">Model Name</div>
+                     <div class="price ">Amount : 1.000.000.00 $</div>
+                     <span class="danger">Rejected</span>
+                     <div class="dropdown">
+                        <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
+                        <ul class="dropdown-menu">
+                            <li> 
+                                <a href="./update_order.html" class="dropdown-link">Update</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="card">
-                         <div class="card-header">
-                             <div class="model">Model Name</div>
-                             <div class="price ">Amount : 1.000.000.00 $</div>
-                             <span class="danger">Rejected</span>
-                             <div class="dropdown">
-                                <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
-                                <ul class="dropdown-menu">
-                                    <li> 
-                                        <a href="./update_order.html" class="dropdown-link">Update</a>
-                                    </li>
-                                </ul>
-                            </div>
-                         </div>
-                         <div class="card-body">
-                             <div class="car-images">
-                                 <img src="./pictures/2.jpg" alt="">
-                             </div>
-                         </div>
-                         <div class="card-footer">
-                             <button class="view"><a href="./show.html">View</a></button>
-                         </div>
+                 </div>
+                 <div class="card-body">
+                     <div class="car-images">
+                         <img src="./pictures/2.jpg" alt="">
+                     </div>
+                 </div>
+                 <div class="card-footer">
+                     <button class="view"><a href="./show.html">View</a></button>
+                 </div>
+            </div>
+            <div class="card">
+                 <div class="card-header">
+                     <div class="model">Model Name</div>
+                     <div class="price ">Amount : 2.000.000.00 $</div>
+                     <span class="secondary">accepted</span>
+                     <div class="dropdown">
+                        <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
+                        <ul class="dropdown-menu">
+                            <li> 
+                                <a href="./update_order.html" class="dropdown-link">Update</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="card">
-                         <div class="card-header">
-                             <div class="model">Model Name</div>
-                             <div class="price ">Amount : 2.000.000.00 $</div>
-                             <span class="secondary">accepted</span>
-                             <div class="dropdown">
-                                <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
-                                <ul class="dropdown-menu">
-                                    <li> 
-                                        <a href="./update_order.html" class="dropdown-link">Update</a>
-                                    </li>
-                                </ul>
-                            </div>
-                         </div>
-                         <div class="card-body">
-                             <div class="car-images">
-                                 <img src="./pictures/3.jpg" alt="">
-                             </div>
-                         </div>
-                         <div class="card-footer">
-                             <button class="view"><a href="./show.html">View</a></button>
-                         </div>
-                    </div>
-                     
-                </div>
-           </div>
+                 </div>
+                 <div class="card-body">
+                     <div class="car-images">
+                         <img src="./pictures/3.jpg" alt="">
+                     </div>
+                 </div>
+                 <div class="card-footer">
+                     <button class="view"><a href="./show.html">View</a></button>
+                 </div>
+            </div>
        </div>
     </main>
     <footer>
+        <div class="ft-sections">
+            <div class="col">
+                <h3>Our services</h3>
+                <div class="ft-description">We provide you the best </div><br>
+                <li>Ads services</li>
+                <li>purchase orders</li>
+                <li>and other amazing things</li>
+            </div>
+            <div class="col">
+                <h3>Contacts</h3>
+                <div class="ft-description">Join us on :</div><br>
+                <li>Whatsapp : +2507809102538</li>
+                <li>Facebook : <a href="https://facebook.com">here</a></li>
+            </div>
+            <div class="col">
+                <h3>Addresses</h3>
+                <div class="ft-description">
+                    Rwanda Kigali, Congo Drc Kinshasa, Kenya Nairobi , Nigeria Lagos
+                </div>
+            </div>
+        </div>
+        <div class="copyright">AutoMart Project &copy;2019</div>
         <div class="scroller">
             <div class="toggler arrow-up"></div>
         </div>
