@@ -101,7 +101,7 @@ else{
 	targetPage = targetPage ==='' ? 'index' : targetPage
 	if(targetPage === 'index' || targetPage === 'show'){
 		if(user){
-			history.pushState({}, targetPage, `/${targetPage}_auth.html`)
+			location.replace(`/${targetPage}_auth.html`)
 			location.reload()
 		}
 	}
