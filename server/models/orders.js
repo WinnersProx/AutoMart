@@ -1,40 +1,25 @@
 import UserModel from './users'
 import CarsModel from './cars'
-let ordersStock = [
-    {
-        id : 0 ,
-        buyer : 0,
-        car_id : 0 ,
-        amount : 150000.00 ,
-        status : "pending"
-    }
-]
-
+import dbModel from './db'
 class OrdersModel {
     
     getOrders(){
-        return ordersStock
+        return db.orders
     }
     createOrder(newOrder){
-        let buyer = UserModel.findById(process.env.UTOKEN.split('.')[0]) // the id of the current user
+        let buyer = UserModel.getAuthUser // the id of the current user
         newOrder.id = parseInt(this.getOrders().length)
-        newOrder.buyer = buyer.id
+        newOrder.buyer = buyer.id,
+        newOrder.car_id = parseInt(newOrder.car_id)
         newOrder.created_on = new Date()
-        ordersStock = [...ordersStock, newOrder]
+        dbModel.addItems(newOrder, 'orders')
         newOrder.price_offered = newOrder.amount
-        newOrder.amount = CarsModel.findById(newOrder.car_id).price
+        newOrder.amount = dbModel.findbyField('id', 'cars', parseInt(newOrder.car_id)).price
         return newOrder
-    }
-    
-    findById(orderId){
-        orderId = parseInt(orderId)
-        return this.getOrders().find((found) => {
-            return found.id === orderId
-        })
     }
 
     newPrice(priceId, price){
-        const order = this.findById(priceId)
+        const order = dbModel.findbyField('id', 'orders', parseInt(priceId))
         if(order){
             const old = order.amount
             order.old_price_offered = old

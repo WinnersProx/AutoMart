@@ -10,5 +10,5 @@ routes
 .patch('/car/:car_id/price', authValidations.isAuthenticated, carsController.updatePrice)  // update the price of a posted car
 .get('/car/:car_id' , carsValidations.exists, carsController.viewCar)
 .get('/car' , carsController.viewCars)
-.delete('/car/:car_id', authValidations.isAuthenticated, carsValidations.exists, carsController.deleteCar)
+.delete('/car/:car_id', authValidations.isAuthenticated, authValidations.isAdmin, carsValidations.exists, carsController.deleteCar)
 export default routes;

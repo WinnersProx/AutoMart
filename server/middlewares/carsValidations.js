@@ -1,4 +1,5 @@
 import carsModel from '../models/cars'
+import dbModel from '../models/db'
 const carsValidations = {
     validateCar : (req, res, next) => {
         
@@ -40,7 +41,7 @@ const carsValidations = {
         
     },
     exists : (req, res, next) => {
-        let car = carsModel.findById(req.params.car_id)
+        let car = dbModel.findbyField('id','cars',parseInt(req.params.car_id))
         if(!car){
             res.status(404).send({ status : 404, error : "Please the target car ad could not be found" })
         }

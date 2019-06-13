@@ -1,4 +1,5 @@
 import ordersModel from '../models/orders'
+import dbModel from '../models/db'
 const ordersController = {
 
     newOrder : (req, res) => {

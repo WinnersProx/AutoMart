@@ -23,10 +23,10 @@ describe('Orders', () => {
         .post('/api/v1/order')
         .set('Content-type', 'application/json')
         .set('Content-type', 'application/x-www-form-urlencoded')
-        .set('Authorization', userModel.getAuth())
+        .set('Authorization', `Bearer ${userModel.authToken}`)
         .send({
             amount : 142000,
-            car_id : 0
+            car_id : 2
         })
         .end((err, res) => {
           if (err) done(err);
@@ -40,10 +40,10 @@ describe('Orders', () => {
     it('user can update the price of his purchase order', (done) => {
         chai
           .request(app)
-          .patch('/order/0/price')
+          .patch('/order/1/price')
           .set('Content-type', 'application/json')
           .set('Content-type', 'application/x-www-form-urlencoded')
-          .set('Authorization', userModel.getAuth())
+          .set('Authorization', `Bearer ${userModel.authToken}`)
           .send({
               amount : 142000
           })

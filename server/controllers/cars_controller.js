@@ -1,6 +1,7 @@
 import CarsModel from '../models/cars'
 import carsModel from '../models/cars';
 import userModel from '../models/users';
+import dbModel from '../models/db'
 import cloudinary from 'cloudinary'
 
 cloudinary.config({
@@ -49,10 +50,10 @@ const carsController = {
         }
     },
     changeStatus : (req, res) => {
-        let car = carsModel.findById(parseInt(req.params.car_id))
+        let car = dbModel.findbyField('id', 'cars', parseInt(req.params.car_id))
         if(car){
             if(carsModel.isOwner(userModel.getAuthUser.id, car)){
-                const owner = userModel.findById(car.owner)
+                const owner = dbModel.findbyField('id','cars',car.owner)
                 car.status = 'sold'
                 car.email = owner.email
                 res.status(200).send({ status : 200, data : car})
@@ -70,7 +71,7 @@ const carsController = {
     updatePrice : (req, res) => {
         let car = carsModel.updateCarPrice(req.params.car_id, req.body)
         if(car){
-            const owner = userModel.findById(car.owner)
+            const owner = dbModel.findbyField('id','cars',car.owner)
             car.email = owner.email
             res.status(200).send({ status : 200, data : car})
         }
@@ -80,17 +81,20 @@ const carsController = {
         
     },
     viewCar : (req, res) => {
-        let car = carsModel.findById(req.params.car_id)
+        let car = dbModel.findbyField('id','cars',parseInt(req.params.car_id))
         res.status(200).send({ status : 200, data : car})
         
     },
     viewCars : (req, res) => {
         let { status, min_price, max_price, state, manufacturer, body_type} = req.query
         // this is to ensure that all posted ads are available when we have GET /car without any param nor a query
-        let cars = carsModel.getCars() 
+        let cars = db.cars.
+        filter((car) => {
+            return status != 'sold' 
+        })
         if(status){
             cars = cars.filter((car) => {
-                return car.status === status
+                return car.status === status && status 
             })
         }
         if(status &&(min_price && max_price)){ 
@@ -105,21 +109,21 @@ const carsController = {
         }
         if(status && manufacturer){
             cars = cars.filter((car) => {
-                return car.manufacturer === manufacturer && car.status === status 
+                return car.manufacturer == manufacturer && car.status == status 
             })
         }
         if(body_type){
             cars = cars.filter((car) => {
-                return car.body_type === body_type
+                return car.body_type === 'Car'
             })
         }
         res.status(200).send({ status : 200, data : cars})
     },
     deleteCar : (req, res) => {
         if(carsModel.removeCar(req.params.car_id))
-            res.status(200).send({status : 200, data : "Car Ad successfully deleted"})
+            res.status(201).send({status : 201, message : "Car Ad successfully deleted"})
         else
-            res.status(403).send({status : 403, data : "You are forbidden to perform this action"})
+            res.status(403).send({status : 403, error : "You are forbidden to perform this action"})
     }
     
 }

@@ -1,70 +1,34 @@
-// should have an id, email, firstname, last_name, password, address and is_admin properties
 import bcrypt from 'bcrypt'
+import dbModel from './db'
 
 global.user_error = "Error occured"
 let authenticated = {}
-let userStore = [
-    {
-        id : 0 ,
-        email : 'bihames4vainqueur@gmail.com' ,
-        first_name : 'Bihame' ,
-        last_name : 'Vainqueur' ,
-        password : '$2b$10$KBI3hZ8aKqXiQPkQk0XPOeuaXY7r6QIO.EdJSylkdxgpFRFOuA4vq' ,
-        address : 'Kigali Kabeza' ,
-        is_admin : true 
-    },
-    {
-        id : 1 ,
-        email : 'johndoe@gmail.com' ,
-        first_name : 'John' ,
-        last_name : 'Doe' ,
-        password : '$2b$10$KBI3hZ8aKqXiQPkQk0XPOeuaXY7r6QIO.EdJSylkdxgpFRFOuA4vq' ,
-        address : 'Annonymous City' ,
-        is_admin : true 
-    }
-];
+let authToken = null
 
 class UserModel {
-
-    getAuth(){
-        return process.env.AUTH_USER
+    setAuthToken(token){
+        authToken = token
+    }
+    get authToken(){
+        return authToken 
     }
     getUsers(){
-        return userStore
-    }
-    // get user by id
-    getUser(id){
-        return this.getUsers()[parseInt(id)]
+        return db.users
     }
     createUser(newUser){
-        if(!this.userExists(newUser)){
-            if(this.validatePassword(newUser.password)){
-                newUser.id = parseInt(this.getUsers().length)
-                newUser.is_admin = false,
-                newUser.password = bcrypt.hashSync(newUser.password, 10)
-                userStore = [...userStore, newUser]
-                return this.getUser(newUser.id)
-            }
-            return false
-        }
-        else{
-            user_error = "email just taken"
-            return false
-        }
+        newUser.id = parseInt(this.getUsers().length + 1)
+        newUser.is_admin = false,
+        newUser.password = bcrypt.hashSync(newUser.password, 10)
+        dbModel.addItems(newUser, 'users')
+        return dbModel.findbyField('id', 'users', newUser.id)
     }
     findUser(user){
-        return userStore.find((found) => {
+        return db.users.find((found) => {
             return found.email === user.email && bcrypt.compareSync(user.password, found.password)
         })
     }
-    findById(userId){
-        userId = parseInt(userId)
-        return userStore.find((found) => {
-            return found.id === userId
-        })
-    }
     userExists(user){
-        return userStore.find((found) => {
+        return db.users.find((found) => {
             return found.email === user.email
         })
     }
@@ -74,22 +38,13 @@ class UserModel {
     get getAuthUser(){
         return authenticated
     }
-    findByEmail(email){
-        return userStore.find((found) => {
-            return found.email === email
-        })
-    }
-    validatePassword(password){
-        if(password.length >= 6 && password.length <= 30)
-            return true
-        return false
-    }
+    
     resetPassword(email, datas){
-        let user = this.findByEmail(email)
+        let user = dbModel.findbyField('email', 'users', email)
         const { new_password, confirm_password } = datas
         if(user){
             if((new_password && confirm_password) && (new_password === confirm_password) && this.validatePassword(new_password)){
-                userStore[user.id].password = datas.new_password
+                db[model][user.id - 1].password = datas.new_password
                 return user
             }
             return false

@@ -23,7 +23,7 @@ describe('Cars ', () => {
         .post('/api/v1/car')
         .set('Content-type', 'application/json')
         .set('Content-type', 'application/x-www-form-urlencoded')
-        .set('Authorization', userModel.getAuth())
+        .set('Authorization', `Bearer ${userModel.authToken}`)
         .send({
             manufacturer : "Toyota" ,
             model : "Mercedess Benz" ,
@@ -36,7 +36,7 @@ describe('Cars ', () => {
           if (err) done(err);
           expect(res).to.have.status(201)
           expect(res.body).to.be.an('object')
-          expect(res.body).to.have.property('data')
+          expect(res.body).to.have.property('status')
           expect(res.body.data).to.have.property('id')
           done();
         })
@@ -44,10 +44,10 @@ describe('Cars ', () => {
     it('user can change the status of a car', (done) => {
         chai
           .request(app)
-          .patch('/api/v1/car/0/status')
+          .patch('/api/v1/car/1/status')
           .set('Content-type', 'application/json')
           .set('Content-type', 'application/x-www-form-urlencoded')
-          .set('Authorization', userModel.getAuth())
+          .set('Authorization', `Bearer ${userModel.authToken}`)
           .send()
           .end((err, res) => {
             if (err) done(err);
@@ -61,10 +61,10 @@ describe('Cars ', () => {
     it('user can update the price of a his posted car ad', (done) => {
         chai
           .request(app)
-          .patch('/api/v1/car/0/price')
+          .patch('/api/v1/car/1/price')
           .set('Content-type', 'application/json')
           .set('Content-type', 'application/x-www-form-urlencoded')
-          .set('Authorization', userModel.getAuth())
+          .set('Authorization', `Bearer ${userModel.authToken}`)
           .send({ amount : 152220})
           .end((err, res) => {
             if (err) done(err);
@@ -78,7 +78,7 @@ describe('Cars ', () => {
     it('user can view a specific car given its id', (done) => {
         chai
           .request(app)
-          .get('/api/v1/car/0')
+          .get('/api/v1/car/1')
           .set('Content-type', 'application/json')
           .end((err, res) => {
             if (err) done(err);
@@ -86,6 +86,19 @@ describe('Cars ', () => {
             expect(res.body).to.be.an('object')
             expect(res.body).to.have.property('data')
             expect(res.body.data).to.have.property('id')
+            done();
+          })
+    })
+    it('will return status 404 once the user accesses not existing pages', (done) => {
+        chai
+          .request(app)
+          .get('/api/v1/car/120')
+          .set('Content-type', 'application/json')
+          .end((err, res) => {
+            if (err) done(err);
+            expect(res).to.have.status(404)
+            expect(res.body).to.be.an('object')
+            expect(res.body).to.have.property('error')
             done();
           })
     })
@@ -189,14 +202,13 @@ describe('Cars ', () => {
     it('user can delete his posted car ad', (done) => { 
         chai
           .request(app)
-          .delete('/api/v1/car/0')
+          .delete('/api/v1/car/1')
           .set('Content-type', 'application/json')
-          .set('Authorization', userModel.getAuth())
+          .set('Authorization', `Bearer ${userModel.authToken}`)
           .end((err, res) => {
             if (err) done(err);
-            expect(res).to.have.status(200)
-            expect(res.body).to.be.an('object')
-            expect(res.body).to.have.property('data')
+            expect(res).to.have.status(201)
+            expect(res.body).to.have.property('message')
             done();
           })
     })
