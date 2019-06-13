@@ -150,93 +150,11 @@ body{
 main{
     position: relative;
     padding-top:40px;
-    margin: 0 80px;
-}
-main .present{
-    color: var(--light);
-    position: relative;
-    font-family: sans-serif;
-    text-align: center;
-    background: url("../pictures/automart.png");
-    background-color: #1e1d21;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 85vh;
-    /*padding: 0 2em;*/
-    box-sizing: border-box;
-}
-.present-texts{
-    font-weight: bold;
-    font-size: 2.5em;
-    padding-top: 15%;
-}
-.present-description{
-    font-size: 1.4em;
-    padding: .5em 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-.join-btn{
-    padding: .6em 6em;
-    margin-top: 2em;
-    background: rgba(72, 61, 162, 1);
-}
-/* Design of the landing page */
-
-/* Design of cards */
-.cards{
-    padding :.5em .8em;
-    background: rgba(204, 229, 253, 0.5);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.card{
-    background: var(--light);
-    margin-bottom: .4em;
-    border-radius: 8px;
-    position: relative;
-    width: 33%;
+    margin: 0;
 }
 
-.card .card-header{
-    color: var(--primary);
-    font-size: .9em;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* border-bottom:1px solid #cacaca; */
-    padding: 0.6em;
-}
-.card-header span{
-    font-size: .7em;
-}
-.card .card-body{
-    position: relative;
-    padding: 0 .4em;
-    height: 230px;
-}
-.card-body .car-images{
-    text-align: center;
-}
-.car-images img{
-    width: 100%;
-    height: 230px;
-}
-.card .card-footer{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: .6em;
-    /* border-top:1px solid #cacaca; */
-}
-.card-footer button{
-    width: 45%;
-    padding: .4em 0;
-}
+
+
 button.order{
     background: var(--primary);
 }
@@ -281,127 +199,18 @@ button.view{
     font-size: xx-large;
     content: url("../pictures/arrow-up.svg");
 }
-/* For viewing a single card */
-.card.view-card{
-    width: 100%;
-    margin: 1.5em 0;
-}
-.card.view-card .card-body{
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-    padding: .4em;
-    width: 100%;
-    height: 350px;
-}
-.card.view-card .card-body .car-images{
-    width: 50%;
-}
-.card.view-card .card-body .car-images img{
-    height: 350px;
-}
-.card.view-card .view-card-infos{
-    font-family: sans-serif;
-    padding: 0 1em;
-    width: 46%;
-}
-.view-card-infos .description{
-    font-weight: bold;
-    color: var(--primary);
-}
-.product-infos{
-    width: 100%;
-    text-align: center;
-}
-.product-infos .product-info{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: .9em 0;
-    width: 100%;
-}
+
 .bolder{
     font-weight: bold;
 }
 
-.cards.cards-view button{
-    margin-top: 1em;
-    padding: .4em 1.5em;
-    width: 300px;
-    margin: .3em;
-    float: right;
-}
-
-/* Profile page design */
-.profile{
-    margin-top: 1em;
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.profile-box{
-    width: 25%;
-    min-width: 20%;
-    border-radius: 8px;
-    background: var(--light);
-    height:250px;
-    border: 1px solid rgba(0,0,0,.1);
-}
-.profile-infos{
-    width: 73%;
-    border-radius: 8px 8px 0 0;
-    background: var(--light);
-    /* height: 3em; */
-    border: 1px solid rgba(0,0,0,.1);
-    /* overflow: hidden; */
-}
-.profile-cover{
-    border-radius: 8px 8px 0 0;
-    background: url("../pictures/automart.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 220;
-    text-align: center;
-    padding-top: 2em;
-}
-img.avatar{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 2px solid var(--primary);
-    box-shadow: 0 0 12px 7px rgba(0,0,0,.3);
-    padding: 1px;
-    margin: 0 auto;
-}
-.user-name{
-    font-size: 1.2em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    margin: .4em 0;
-}
-.profile-nav{
-    /* background: aliceblue; */
-    padding: .8em 0;
-    /* border-bottom: 1px solid rgba(0,0,0,.1); */
-}
-.profile-nav li{
-    border-right: 1px solid rgba(0,0,0,.1);
-}
-.profile-nav a{
-    color: var(--dark) !important;
-}
-.profile .cards .card{
-    width: 48%;
-}
 /* Dropdown customization */
 li{
     list-style: none;
 }
 .icon{
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
 }
 /* dropdown items */
@@ -442,54 +251,7 @@ li{
     
 }
 
-/* Signup, Signin and Cars Ads update */
-.feedback-form{
-    position: relative;
-    margin: 4em auto;
-    padding: 1em .5em;
-    width: 430px;
-    border: 1px solid rgba(0,0,0,.1);
-    box-shadow: 0 0 12px rgba(0,0,0,.1);   
-    border-radius: 6px;
-}
-.feedback-form.small{
-    margin: 8em auto;
-}
 
-.feedback-form label:not(.uploader), .feedback-form input{
-    display: block;
-    color: var(--dark);
-}
-.feedback-form label{
-    font-family: 'Trebuchet MS';
-    font-size: 1.1em;
-    margin-bottom: .2em;
-}
-.feedback-form input:not(.img-uploader), .feedback-form select, .feedback-form textarea{
-    display: block;
-    border: none;
-    outline: none;
-    background: rgba(246, 252, 238, .3);
-    font-size: 1em;
-    font-family: 'Trebuchet MS';
-    border-bottom: 1px solid var(--primary);
-    width:calc(100% - (0.75rem + 0.7em));
-    padding: .6rem 0.75rem;
-    background-clip: padding-box;
-    margin-bottom: .8rem;
-    resize: none;
-}
-.uploader{
-    position: relative;
-    margin-right: 1em;
-}
-input.img-uploader{
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    width: 50px;
-    opacity: 0;
-}
 .light{
     color: var(--light);
 }
@@ -505,201 +267,57 @@ button.btn-submit{
     border-radius: 4px;
     margin-bottom: .8em;
 }
-/*  */
 
+/* All about the footer */
+footer{
+    font-family: sans-serif;
+    font-size: .9em;
+    color: white;
+    padding: .8em;
+    background : rgb(63, 70, 69);
+    position: relative;
+
+
+}
+footer .ft-sections{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 1.5em;
+    box-sizing: border-box;
+    margin-bottom: .5em;
+}
+.ft-sections div{
+    font-size: .9em;
+}
+.ft-sections li{
+    list-style: none;
+    font-family: sans-serif;
+    font-size: .9em;
+    line-height: 1.5;
+}
+
+.ft-sections a{
+    color: var(--primary) !important;
+}
+.ft-sections h3{
+    color: #2ab9ff;
+}
+.ft-sections .col{
+    width: 33.33%;
+}
+.ft-description{
+    /*padding: .5em;*/
+}
+
+footer .copyright{
+    color: #eeeeee;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding : .5em;
+
+}
 /* Responsiveness accross Mobile, Tablets and Desktops */
-
-@media(max-width:1000px){
-    main{
-        margin: 0 50px;
-    }
-    /* for the header */
-    .search-bar input{
-        width: 150px;
-    }
-    header .branding{
-        padding: 0 1em;
-    }
-    main{
-        margin: 0 15px;
-    }
-    /* for the header */
-    .search-bar input{
-        width: 100px;
-    }
-    
-    header .branding{
-        padding: 0 .5em;
-    }
-
-    /* for the cards */
-    .card{
-        width: 49% !important;
-    }
-    .card.view-card{
-        width: 100% !important;
-    }
-    
-}
-
-@media(max-width:826px){
-    main{
-        margin: 0;
-    }
-    main .present{
-        height: 70vh;
-    }
-    /* for the header */
-    
-    header .branding{
-        padding: .2em;
-        font-size: 1.3em;
-    }
-    
-    nav li a {
-        padding: 0 .3em;
-        font-size: 0.7em;
-        font-weight: normal;
-    }
-
-    /* for the cards */
-    
-    .card.view-card .card-body{
-        flex-direction: column;
-        position: relative;
-        height: auto;
-    }
-    .card.view-card .card-body .car-images{
-        width: calc(100% - .9em);
-    }
-    .card.view-card .view-card-infos{
-        width: 90%;
-    }
-    /* for the profile */
-    .profile{
-        margin: .9em .2em;
-        flex-wrap: wrap;
-    }
-    .profile-box{
-        width: 99%;
-        height: 200px;
-        margin-bottom: .4em;
-    }
-    .profile-infos{
-        width: 99%;
-    }
-    .profile-cover{
-        background-size: cover;
-        padding-top: 1.2em;
-    }
-    .user-name{
-        font-size: 1.1em;
-    }
-    header nav{
-        padding: 0;
-    }
-    .user-avatar{
-        width: 20px;
-        height: 20px;
-        margin-right: .5em;
-    }
-    .feedback-form{
-        width: 93%;
-        margin: .4em;
-    }
-    .feedback-form.small{
-        margin: 1em .4em;
-    }
-}
-@media(max-width:700px){
-    header{
-        height: 80px;
-        display: block;
-        padding: 0 !important;
-    }
-    .search-bar{
-        position: relative;
-        margin: 0 auto;
-        width: 90%;
-    }
-    .search-bar select{
-        width: 20%;
-    }
-    .search-bar input[type="text"]{
-        width: 20%;
-    }
-    .search-bar input[type="text"].no-split{
-        width: 40%;
-    }
-    .filterBtn{
-        width: 20%;
-        height: 28px;
-        padding: 0 !important;
-    }
-    .navigation{
-        position: absolute;
-        top: 0;
-        right: 10%;
-    }
-    header .dropdown{
-        position: absolute;
-        top: 4px;
-        right: 0%;
-        margin-right:  0 !important;
-    }
-    main{
-        margin-top: 32px;
-    }
-    header .dropdown-menu{
-        top:18px;
-        margin-right: 0;
-    }
-}
-@media(max-width:479px){
-    
-    header nav{
-        padding-left: 7px;
-        margin-top: 0px;
-    }
-    nav li a {
-        font-size: 0.8em;
-    }
-    header .dropdown{
-        margin-top: 0;
-    }
-    main{
-        margin-top: 32px;
-    }
-    .present-description {
-        font-size: 1.3em;
-    }
-    .present-texts {
-        font-size: 1.8em;
-    }
-    .search-bar{
-        width: 100%;
-        margin: 0 2px;
-    }
-    .search-bar input, .search-bar select {
-        padding: 0.4em 1em;
-    }
-    .feedback-form{
-        margin: .2em;
-    }
-    .feedback-form.small {
-        margin: 1em 0.2em;
-    }
-    .cards{
-        flex-direction: column;
-    }
-    .card{
-        width: 99% !important;
-    }
-    .join-btn{
-        padding: 0 8px;
-        height: 30px;
-    }
-}
 
 
 /* by @Bihame Sikubwabo Vainqueur */

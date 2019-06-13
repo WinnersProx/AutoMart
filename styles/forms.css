@@ -1,0 +1,58 @@
+/* Signup, Signin and Cars Ads update */
+.feedback-form{
+    position: relative;
+    margin: 4em auto;
+    width: 430px;
+    box-shadow: 0 0 12px rgba(0,0,0,.1);   
+    border-radius: 6px;
+}
+.feedback-form .feedback-f-header{
+    background: #8bb0fc;
+    color: #ffffff;
+    font-family: sans-serif;
+    height: 50px;
+    padding: 1em .5em;
+    border-radius: 6px 6px 0 0;
+}
+.feedback-f-body{
+    padding: 0 .8em;
+}
+.feedback-form.small{
+    margin: 8em auto;
+}
+
+.feedback-form label:not(.uploader), .feedback-form input{
+    display: block;
+    color: var(--dark);
+}
+.feedback-form label{
+    font-family: 'Trebuchet MS';
+    font-size: 1.1em;
+    margin-bottom: .2em;
+}
+.feedback-form input:not(.img-uploader), .feedback-form select, .feedback-form textarea{
+    display: block;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    background: rgba(246, 252, 238, .3);
+    font-size: 1.05em;
+    font-family: 'Trebuchet MS';
+    border-bottom: 1px solid var(--primary);
+    width: 100%;
+    padding: .9rem 0.75rem;
+    background-clip: padding-box;
+    margin-bottom: .8rem;
+    resize: none;
+}
+.uploader{
+    position: relative;
+    margin-right: 1em;
+}
+input.img-uploader{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    width: 50px;
+    opacity: 0;
+}

@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AutoMart | Feel Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">4
+    <link rel="stylesheet" type="text/css" href="./styles/index.css">
+    <link rel="stylesheet" type="text/css" href="./styles/cards.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/responsive.css">
+    
     <link rel="shortcut icon" href="./pictures/favicon.png" id="favicon">
 </head>
 <body>
@@ -29,38 +33,26 @@
                 <a href="./signin.html">Sign in</a>
             </li>
         </nav>
-        <div class="dropdown">
-            <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
-            <ul class="dropdown-menu">
-                    <li><a href="./admin.html">Admin Panel</a></li>
-                <li><a href="./profile.html">Profile</a></li>
-                <li><a href="./signin.html">Logout</a></li>
-            </ul>
-        </div>
     </header>
     <main>
        <div class="present">
-           <div class="present-texts">Welcome to the world of dealers</div>
-           <div class="present-description">Do you want to make your car sales and purchase orders much more reliable ?<br>You're at the right place!</div>
-           <button class="join-btn"><a href="./new_product.html">Post a car for safe sale</a></button>
+           <div class="image-cover"></div>
+           <img src="./pictures/land_page.jpg" alt="Landpage Infos" class="land-image">
+           <div class="descriptions">
+                <div class="present-texts">Welcome to the world of dealers</div>
+                <div class="present-description">Do you want to make your car sales and purchase orders much more reliable ?<br>You're at the right place!</div>
+                <button class="join-btn"><a href="./new_product.html">Post a car for safe sale</a></button>
+           </div>
        </div>
        <div class="cards">
            <div class="card">
                 <div class="card-header">
                     <div class="model">Model Name</div>
                     <div class="price">Price : 15.000.00 $</div>
-                    <div class="dropdown">
-                        <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
-                        <ul class="dropdown-menu">
-                            <li> 
-                                <a href="./flag.html" class="dropdown-link">Flag (Report) </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
                 <div class="card-body">
                     <div class="car-images">
-                        <img src="./pictures/3.jpg" alt="">
+                        <a href="./show.html"><img src="./pictures/3.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -72,18 +64,11 @@
                 <div class="card-header">
                     <div class="model">Model Name</div>
                     <div class="price">Price : 18.000.00 $</div>
-                    <div class="dropdown">
-                        <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
-                        <ul class="dropdown-menu">
-                            <li> 
-                                <a href="./flag.html" class="dropdown-link">Flag (Report) </a>
-                            </li>
-                        </ul>
-                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <div class="car-images">
-                        <img src="./pictures/1.jpg" alt="">
+                        <a href="./show.html"><img src="./pictures/1.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -94,41 +79,10 @@
                 <div class="card-header">
                     <div class="model">Model Name</div>
                     <div class="price ">Price : 1.000.000.00 $</div>
-                    <div class="dropdown">
-                        <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
-                        <ul class="dropdown-menu">
-                            <li> 
-                                <a href="./flag.html" class="dropdown-link">Flag (Report) </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                    </div>
                 <div class="card-body">
                     <div class="car-images">
-                        <img src="./pictures/2.jpg" alt="">
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="order"><a href="./order.html">Order</a></button>
-                    <button class="view"><a href="./show.html">View</a></button>
-                </div>
-           </div>
-           <div class="card">
-                <div class="card-header">
-                    <div class="model">Model Name</div>
-                    <div class="price ">Price : 2.000.000.00 $</div>
-                    <div class="dropdown">
-                        <img src="./pictures/ios-settings.svg" alt="settings" class="icon dropdown-toggle">
-                        <ul class="dropdown-menu">
-                            <li> 
-                                <a href="./flag.html" class="dropdown-link">Flag (Report) </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="car-images">
-                        <img src="./pictures/3.jpg" alt="">
+                        <a href="./show.html"><img src="./pictures/2.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -140,6 +94,28 @@
        </div>
     </main>
     <footer>
+        <div class="ft-sections">
+            <div class="col">
+                <h3>Our services</h3>
+                <div class="ft-description">We provide you the best </div><br>
+                <li>Ads services</li>
+                <li>purchase orders</li>
+                <li>and other amazing things</li>
+            </div>
+            <div class="col">
+                <h3>Contacts</h3>
+                <div class="ft-description">Join us on :</div><br>
+                <li>Whatsapp : +2507809102538</li>
+                <li>Facebook : <a href="https://facebook.com">here</a></li>
+            </div>
+            <div class="col">
+                <h3>Addresses</h3>
+                <div class="ft-description">
+                    Rwanda Kigali, Congo Drc Kinshasa, Kenya Nairobi , Nigeria Lagos
+                </div>
+            </div>
+        </div>
+        <div class="copyright">AutoMart Project &copy;2019</div>
         <div class="scroller">
             <div class="toggler arrow-up"></div>
         </div>

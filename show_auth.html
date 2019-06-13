@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./styles/cards.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./styles/responsive.css">
-    
 </head>
 <body>
     <header>
@@ -22,6 +21,14 @@
                 <a href="./signin.html">Sign in</a>
             </li>
         </nav>
+        <div class="dropdown">
+            <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
+            <ul class="dropdown-menu">
+                    <li><a href="./admin.html">Admin Panel</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="./signin.html">Logout</a></li>
+            </ul>
+        </div>
     </header>
     <main>
        <div class="cards cards-view">
@@ -63,6 +70,7 @@
                         </div>
                     </div>
                 </div>
+                <button class="order btn-secondary"><a href="./order.html">Order this product</a></button>
            </div>
        </div>
     </main>

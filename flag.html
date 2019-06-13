@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AutoMart | Flag </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
     <link rel="shortcut icon" href="./pictures/favicon.png" id="favicon">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/forms.css">
+    <link rel="stylesheet" type="text/css" href="./styles/responsive.css">
 </head>
 <body>
     <header>
@@ -22,14 +23,7 @@
             <input type="text" class="text-filter no-split" placeholder="Type your search here or filter...">
             <button class="filterBtn">Filter</button>
         </div>
-        <nav class="navigation">
-            <li>
-                <a href="./signup.html">Sign up</a>
-            </li>
-            <li>
-                <a href="./signin.html">Sign in</a>
-            </li>
-        </nav>
+        
         <div class="dropdown">
             <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
             <ul class="dropdown-menu">
@@ -42,15 +36,41 @@
     <main>
        <div class="feedback-form">
             <form action="./index.html" method="POST">
-                <label for="reason">Reason <span class="danger"> &ast;</span></label>
-                <input type="text" id="reason" name="reason" placeholder="The reason of this report">
-                <label for="description">Description <span class="danger"> &ast;</span></label>
-                <textarea type="text" id="description" name="description" placeholder="The reason of this report"></textarea>
-                <button type="submit" class="btn-submit">Flag post</button>
+                <div class="feedback-f-header"> 
+                    <h2>Flag Post</h2>
+                </div>
+                <div class="feedback-f-body">
+                    <input type="text" id="reason" name="reason" placeholder="Reason">
+                    <textarea type="text" id="description" name="description" placeholder="Description"></textarea>
+                    <button type="submit" class="btn-submit">Flag post</button> 
+                </div>
+                
             </form>
        </div>
     </main>
     <footer>
+        <div class="ft-sections">
+            <div class="col">
+                <h3>Our services</h3>
+                <div class="ft-description">We provide you the best </div><br>
+                <li>Ads services</li>
+                <li>purchase orders</li>
+                <li>and other amazing things</li>
+            </div>
+            <div class="col">
+                <h3>Contacts</h3>
+                <div class="ft-description">Join us on :</div><br>
+                <li>Whatsapp : +2507809102538</li>
+                <li>Facebook : <a href="https://facebook.com">here</a></li>
+            </div>
+            <div class="col">
+                <h3>Addresses</h3>
+                <div class="ft-description">
+                    Rwanda Kigali, Congo Drc Kinshasa, Kenya Nairobi , Nigeria Lagos
+                </div>
+            </div>
+        </div>
+        <div class="copyright">AutoMart Project &copy;2019</div>
         <div class="scroller">
             <div class="toggler arrow-up"></div>
         </div>
