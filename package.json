@@ -1,6 +1,9 @@
 {
   "name": "automart-api-endpoints",
   "version": "1.0.0",
+  "engines": {
+    "node": "stable"
+  },
   "description": "Api that will serve our built templates",
   "main": "index.js",
   "scripts": {
