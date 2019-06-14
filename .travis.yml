@@ -3,5 +3,10 @@ node_js :
   - "stable"
 script :
   - npm test
+deploy :
+  skip_cleanup: true
+  provider : heroku
+  on :
+    branch : develop
 after_success :
   - npm run coverage
