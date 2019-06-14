@@ -30,7 +30,7 @@ const carsValidations = {
         }
         
         // the car's body type validation
-        if(!body || !body_type.trim()){
+        if(!body_type || !body_type.trim()){
             errors.push('The car\'s body type is required')
         }
 

@@ -5,7 +5,7 @@ import carsValidations from '../middlewares/carsValidations'
 const routes = express.Router()
 // hence we'll be using custom middlewares to handle all user requests
 routes
-.post('/car', authValidations.isAuthenticated, carsController.createCar) //create a car sale ad
+.post('/car', authValidations.isAuthenticated, carsValidations.validateCar, carsController.createCar) //create a car sale ad
 .patch('/car/:car_id/status', authValidations.isAuthenticated, carsController.changeStatus)  // mark a posted car as sold
 .patch('/car/:car_id/price', authValidations.isAuthenticated, carsController.updatePrice)  // update the price of a posted car
 .get('/car/:car_id' , carsValidations.exists, carsController.viewCar)
