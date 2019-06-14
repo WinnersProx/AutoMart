@@ -1,6 +1,6 @@
 ## AUTOMART PROJECT API
 
-[![Coverage Status](https://coveralls.io/repos/github/WinnersProx/AutoMart/badge.svg?branch=develop)](https://coveralls.io/github/WinnersProx/AutoMart?branch=develop&service=github) [![Maintainability](https://api.codeclimate.com/v1/badges/b757ade85df2231ebb64/maintainability)](https://codeclimate.com/github/WinnersProx/AutoMart/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/WinnersProx/AutoMart/badge.svg)](https://coveralls.io/github/WinnersProx/AutoMart?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/b757ade85df2231ebb64/maintainability)](https://codeclimate.com/github/WinnersProx/AutoMart/maintainability)
 
  A market place for both selling and buying automobiles for solving multiple issues that face dealers and buyers at the market (Our sight is to serve you with the best quality of services).
 
