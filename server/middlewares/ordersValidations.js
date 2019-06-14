@@ -5,10 +5,10 @@ import userModel from '../models/users'
 const ordersValidations = {
     validateOrder : (req, res, next) => {
         
-        const { car_id, amount, status = "pending" } = req.body
+        const { car_id, price_offered, status } = req.body
         let errors = []
         // car's identifier validation
-        if(car_id && car_id.trim()){
+        if(car_id){
             // check if really the car exist in the system
             if(!dbModel.findbyField('id', 'cars', parseInt(car_id)))
                 errors.push("Sorry, the car you specified does not exist here...")
@@ -17,7 +17,7 @@ const ordersValidations = {
             errors.push("The car identifier should be specified")
         }
         // the car's amount validation
-        if(!amount || !amount.trim()){
+        if(!price_offered){
             errors.push("The amount that you propose")
         }
         

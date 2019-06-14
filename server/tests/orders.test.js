@@ -25,7 +25,7 @@ describe('Orders', () => {
         .set('Content-type', 'application/x-www-form-urlencoded')
         .set('Authorization', `Bearer ${userModel.authToken}`)
         .send({
-            amount : 142000,
+            price_offered : 142000,
             car_id : 2
         })
         .end((err, res) => {
@@ -34,6 +34,22 @@ describe('Orders', () => {
           expect(res.body).to.be.an('object')
           expect(res.body).to.have.property('data')
           expect(res.body.data).to.have.property('id')
+          done();
+        })
+    })
+    it('should return a 400 status if there is no related car and amount', (done) => {
+      chai
+        .request(app)
+        .post('/api/v1/order')
+        .set('Content-type', 'application/json')
+        .set('Content-type', 'application/x-www-form-urlencoded')
+        .set('Authorization', `Bearer ${userModel.authToken}`)
+        .send({})
+        .end((err, res) => {
+          if (err) done(err);
+          expect(res).to.have.status(400)
+          expect(res.body).to.be.an('object')
+          expect(res.body).to.have.property('errors')
           done();
         })
     })

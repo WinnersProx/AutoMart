@@ -22,8 +22,8 @@ app.listen(PORT, () => {
     console.log(`Automart api server has been started on port:${PORT}`)
 })
 
-// app.get('**', (req, res) => {
-// 	res.status(404).send({ status : 404, message : 'Page not found!'})
-// })
+app.get('**', (req, res) => {
+	res.status(404).send({ status : 404, message : 'Page not found!'})
+})
 
 export default app

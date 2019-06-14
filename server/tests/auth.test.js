@@ -39,6 +39,21 @@ describe('Auth ', () => {
           done();
         })
   })
+    it('should return an object with status 400 when a user signs up without credentials', (done) => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signup')
+        .set('Content-type', 'application/json')
+        .set('Content-type', 'application/x-www-form-urlencoded')
+        .send({})
+        .end((err, res) => {
+          if (err) done(err);
+          expect(res).to.have.status(400)
+          expect(res.body).to.be.an('object')
+          expect(res.body).to.have.property('error')
+          done();
+        })
+  })
   it('should return an object with status 403 when a creates an existing account', (done) => {
       chai
         .request(app)
@@ -62,7 +77,7 @@ describe('Auth ', () => {
         })
   })
   
-  it('should return an object with status 200 when a user signs in', (done) => {
+  it('should return an object with status 200 when a user signs in using token', (done) => {
       chai
         .request(app)
         .post('/api/v1/auth/signin')
@@ -78,6 +93,22 @@ describe('Auth ', () => {
           done();
         })
     })
+    it('should return an object with status 400 when a user signs in with body', (done) => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signin')
+        .set('content-type', 'application/json')
+        .set('Content-type', 'application/x-www-form-urlencoded')
+        .send({})
+        .end((err, res) => {
+          if (err) done(err);
+          expect(res).to.have.status(400)
+          expect(res.body).to.be.an('object')
+          expect(res.body).to.have.property('errors')
+          done();
+        })
+    })
+
     it('should have a status 200 and a message when the user signs out', (done) => {
       chai
         .request(app)

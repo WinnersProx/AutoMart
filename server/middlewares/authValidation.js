@@ -8,21 +8,21 @@ const AuthValidations = {
         
         const { email, first_name, last_name, password, password_confirm, address } = req.body
         // email validation
-        if(!email && !email.trim()){
+        if(!email){
             errors.push("The email cannot be empty")
         }
         // firstname validation
-        if(!first_name && !first_name.trim()){
+        if(!first_name){
             errors.push("The first name cannot be empty")
         }
         
         // last name validation
-        if(!last_name && !last_name.trim()){
+        if(!last_name){
             errors.push("The last name cannot be empty")
         }
 
         // address validations
-        if(!address.trim()){
+        if(!address){
             errors.push('The address is required')
         }
         
@@ -35,16 +35,15 @@ const AuthValidations = {
     validateSignin : (req, res, next) => {
         const { email, password } = req.body
         // email validation
-        if(req.body.length){
-            if(!email || !email.trim()){
+        if(!req.headers.authorization){
+            if(!email){
                 errors.push("The email should not be empty")
             }
             // password validation
-            if(!password || !password.trim()){
+            if(!password){
                 errors.push("The password should not be empty")
             }
         }
-        
         if(errors.length)
             res.status(400).send({ status : 400, errors : errors})
         next()

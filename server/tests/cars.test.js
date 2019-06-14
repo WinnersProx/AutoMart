@@ -41,6 +41,22 @@ describe('Cars ', () => {
           done();
         })
     })
+    it('should return a 400 status if no credentials', (done) => {
+      chai
+        .request(app)
+        .post('/api/v1/car')
+        .set('Content-type', 'application/json')
+        .set('Content-type', 'application/x-www-form-urlencoded')
+        .set('Authorization', `Bearer ${userModel.authToken}`)
+        .send({})
+        .end((err, res) => {
+          if (err) done(err);
+          expect(res).to.have.status(400)
+          expect(res.body).to.be.an('object')
+          expect(res.body).to.have.property('errors')
+          done();
+        })
+    })
     it('user can change the status of a car', (done) => {
         chai
           .request(app)
