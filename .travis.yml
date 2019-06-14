@@ -6,6 +6,16 @@ script :
 deploy :
   skip_cleanup: true
   provider : heroku
+  api_key :
+    secure: "T1smztwdL70DVmbVCZ3gsF8PwxJNxFs8zH26YJ8KQ9Art/QYMJR2uRHAtG9bKj+iaAQOV
+    kf3XDWGVDBbrB6aF1ZdEw6a9IZ7zEHlPDYBekQuF9XEl8q8Wya3zEhCKfaW67QsUVmF+dZe8Bw9GpAvm
+    spYZN46OC60G6AxhcaXR0HR8FM4kxLFP1025xDs5c1ydTuRb5pDfRhkpGoH7Mulgr2XCnPR4l6FhabYh
+    KoRB+P1rzID40M+UDq/1l4QExcyy873MHAd+ZsE+SC5IpAjrvQsJD1MuNTkuNtiBz8FRsBOEXDJcWNv3
+    wDw/MyZAZaepgHsv+IB7sB12qeLmsQ95kpjJPwttoz49ewUfmihVovgjlNfcG7iJdaccE6/gO3TVZOAg
+    AE19qpydlhLMFmH0rkVOknl9GapHmaDynAf6UPzDzzzLwyMM0kuGiguO38mFQFCx1gLD/27w/QC0c6BA
+    86T5FLtwj9gLFqFHOLAVl/beshONP1SqfT6n9jLtNKxHKEoObCSfmzyFtzM7mP+WAaw8WOFmeVG2PrEw
+    Pg/QAEbqhdlKKal24cT62Rw+lawpxacZEcp9l+xhIaHWmC3AzWO/jyxYVqlwItyGnE6Dc+1rUCXhcfXj
+    LlVclEPwbRctTqPDhHY1DltC6AXxD43V2kqEhO6dFST+VCpA4n/qJA="
   on :
     branch : develop
 after_success :
