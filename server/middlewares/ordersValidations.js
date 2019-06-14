@@ -1,21 +1,23 @@
 import ordersModel from '../models/orders'
 import carsModel from '../models/cars';
+import dbModel from '../models/db'
+import userModel from '../models/users'
 const ordersValidations = {
     validateOrder : (req, res, next) => {
         
-        const { car_id, amount, status = "pending" } = req.body
+        const { car_id, price_offered, status } = req.body
         let errors = []
         // car's identifier validation
-        if(car_id && car_id.trim()){
+        if(car_id){
             // check if really the car exist in the system
-            if(!carsModel.findById(car_id))
+            if(!dbModel.findbyField('id', 'cars', parseInt(car_id)))
                 errors.push("Sorry, the car you specified does not exist here...")
         }
         else{
             errors.push("The car identifier should be specified")
         }
         // the car's amount validation
-        if(!amount || !amount.trim()){
+        if(!price_offered){
             errors.push("The amount that you propose")
         }
         
@@ -27,14 +29,15 @@ const ordersValidations = {
     },
     checkOrder : (req, res, next) => {
         const orderId = req.params.order_id
-        const order = ordersModel.findById(parseInt(orderId))
+        const order = dbModel.findbyField('id', 'orders', parseInt(orderId))
         let errors = []
         if(!order){
             errors.push("The given order does not exist")
         }
         else{
-            order.status !== 'pending' ? errors.push("Sorry at this stage the order cannot be updated") : errors
-            parseInt(order.buyer) !== parseInt(req.headers.authorization.split('.')[0])
+            order.status !== 'pending' ? errors.push("Sorry at this stage the order cannot be updated") 
+            : errors
+            parseInt(order.buyer) !== userModel.getAuthUser.id
             ? errors.push("Sorry, You cannot update the order which is not yours") 
             : errors
         }

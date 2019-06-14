@@ -16,7 +16,6 @@
 - Users can view a specific car
 - Users can view all unsold cars
 - Users can view all unsold cars within a price range (considering min and max value)
-- Users can delete a specific car Ad ( Obviously if they're owners or admins)
 - Users can view all posted ads whether sold or available.
 - Users can flag or report a posted AD as fraudulent.
 - Users can view all unsold cars of a specific make or manufacturer
@@ -33,8 +32,8 @@ Tools used for development of this project are;
 ## Getting Started
 1. Clone the github repository [here](https://github.com/WinnersProx/AutoMart). 
 
-2. Then once it's cloned you can run it in your browser
-if the stated commands are not succesful try to install all the development dependencies to fix it
+## Deployment
+1. Github pages [here](https://winnersprox.github.io/AutoMart)
 
-# Contributor
+## Key Contributor
 - Bihame Sikubwabo Vainqueur

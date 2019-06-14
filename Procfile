@@ -1,1 +1,1 @@
-web : nodemon index --exec babel-node --presets @babel/preset-env
+web : babel-node index.js

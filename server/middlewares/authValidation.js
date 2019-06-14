@@ -1,37 +1,28 @@
-import UserModel from '../models/users'
-import passport from 'passport'
+import jwtDecode from 'jwt-decode'
+import dbModel from '../models/db'
+import userModel from '../models/users';
+
 let errors = []
 const AuthValidations = {
     validateUser : (req, res, next) => {
         
         const { email, first_name, last_name, password, password_confirm, address } = req.body
         // email validation
-        if(!email && !email.trim()){
+        if(!email){
             errors.push("The email cannot be empty")
         }
         // firstname validation
-        if(!first_name && !first_name.trim()){
+        if(!first_name){
             errors.push("The first name cannot be empty")
         }
         
         // last name validation
-        if(!last_name && !last_name.trim()){
+        if(!last_name){
             errors.push("The last name cannot be empty")
         }
 
-        // passwords validation
-        if((password && password.trim()) && (password_confirm && password_confirm.trim())){
-            // no error
-            if(password != password_confirm){
-                errors.push("The password and password confirm must match")
-            }
-        }
-        else{
-            errors.push('The password is required')
-        }
-
         // address validations
-        if(!address.trim()){
+        if(!address){
             errors.push('The address is required')
         }
         
@@ -44,28 +35,65 @@ const AuthValidations = {
     validateSignin : (req, res, next) => {
         const { email, password } = req.body
         // email validation
-        if(!email && !email.trim()){
-            errors.push("The email should not be empty")
+        if(!req.headers.authorization){
+            if(!email){
+                errors.push("The email should not be empty")
+            }
+            // password validation
+            if(!password){
+                errors.push("The password should not be empty")
+            }
         }
-        // password validation
-        if(!password && !password.trim()){
-            errors.push("The password should not be empty")
-        }
-        
         if(errors.length)
             res.status(400).send({ status : 400, errors : errors})
         next()
         errors = []
     },
     isAuthenticated : (req, res, next) => {
-        passport.authenticate('jwt', (err, user, info) => {
-            if(!err){
-                if(!user){
-                    res.status(401).send({ status : 401, message : "You must be logged in"})
-                }
+        let auth = req.headers.authorization ? req.headers.authorization.split(' ') : null
+        if(auth && (auth[0] === 'Bearer') && (auth.length === 2) && (auth[1] === userModel.authToken)){
+            let user = dbModel.findbyField('id', 'users', jwtDecode(auth[1]).id)
+            if(!user) return res.status(403).send({ status : 403, message : "You must login to access this location"})
+            userModel.setAuthUser(user)
+        }
+        else{
+            return res.status(403).send({ status : 403, message : "You are not allowed to access this location login first"})
+        }
+        next()
+    },
+    validatePassword : (req, res, next) => {
+        // passwords validation
+        const { password, password_confirm } = req.body
+
+        if(password && password.trim()){
+            if(password != password_confirm){
+                return res.status(400).send({ status : 400, error : 'password and password confirm should match'})
             }
-            res.status(400).send({ status : 401, message : "Sorry something went wrong, try again!"})
-        })
+            console.log(password.length >= 6 && password.length <= 30)
+            if(!(password.length >= 6 && password.length <= 30))
+                return res.status(400).send({ status : 400, error : 'passwords are to be 6 to 30 characters long'})
+            
+        }
+        else{
+           return res.status(400).send({ status : 400, error : 'password and password confirm are required'}) 
+        }
+        
+        
+        next()
+    },
+    userExists : (req, res, next) => {
+        if(userModel.userExists(req.body)){
+            return res.status(403).send({ status : 403, error : "Sorry this email is already taken"})
+        }
+        next()
+
+    },
+    isAdmin : (req, res, next) => {
+        let authUser = jwtDecode(req.headers.authorization.split(' ')[1])
+        let user = dbModel.findbyField('id', 'users', authUser.id)
+        if(!user.is_admin){
+            res.status(403).send({ status : 403, error : 'You must be an admin to access this location'})
+        }
         next()
     }
     

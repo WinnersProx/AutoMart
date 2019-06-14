@@ -1,25 +1,16 @@
 import userModel from '../models/users'
-import randomBytes from 'random-bytes'
-import jwt from 'jsonwebtoken'
+import dbModel from '../models/db'
+import mainHelper from '../helpers'
 const authController = {
-    authenticate : (user) => {
-        const token = jwt.sign({
-            email : user.email,
-            id    : user.id
-        }, process.env.SECRET_KEY,
-        {
-            expiresIn : "1h"
-        })
-        user.token = token
-    },
+
     signup : (req, res) => {
         let user = userModel.createUser(req.body)
         if(user){
-            authController.authenticate(user)
+            user = mainHelper.authenticate(user)
             res.status(201)
             .send({
                 status : 201,
-                data : user
+                data : user.token
             })
         }
         else{
@@ -34,14 +25,22 @@ const authController = {
     signin : (req, res) => {
         let user = userModel.findUser(req.body)
         if(user){
-            authController.authenticate(user)
+            mainHelper.authenticate(user)
             res.status(200)
             .send({
                 status : 200 ,
-                data : user
+                data : {token : user.token}
             })
         }
         else{
+            
+            if(req.headers.authorization){
+                let token = mainHelper.tokenSignIn(req.headers.authorization)
+                if(token){
+                    return res.status(200).send({ status: 200, data : {token : token}})
+                }
+                return res.status(401).send({ status : 401, error : 'Your token is wrong'})
+            }
             res.status(401)
             .send({
                 status : 401 ,
@@ -59,10 +58,10 @@ const authController = {
     initializeReset : (req, res) => {
         const { email } = req.body
         if(email){
-            let user = userModel.findByEmail(email)
+            let user = dbModel.findbyField('email', 'users', email)
             if(user){
-                let token = randomBytes.sync(16).toString('hex').toUpperCase()
-                process.env.RESET_TOKEN = token,
+                let token = mainHelper.generateRandomToken()
+                process.env.RESET_TOKEN = token
                 process.env.email = email
                 res.status(200).send({ status : 200, data : {
                     url : '/reset-password/' + token,

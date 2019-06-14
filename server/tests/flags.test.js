@@ -20,10 +20,10 @@ describe('Flags', () => {
   it('user can flag or report a posted ad', (done) => {
       chai
         .request(app)
-        .post('/api/v1/flag/0')
+        .post('/api/v1/flag/2')
         .set('Content-type', 'application/json')
         .set('Content-type', 'application/x-www-form-urlencoded')
-        .set('Authorization', userModel.getAuth())
+        .set('Authorization', `Bearer ${userModel.authToken}`)
         .send({
             reason : 'Price',
             description : 'Highest price along the market'

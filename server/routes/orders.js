@@ -5,7 +5,7 @@ import ordersValidations from '../middlewares/ordersValidations'
 const routes = express.Router()
 
 routes
-.post('/order', authValidations.isAuthenticated, ordersController.newOrder) 
+.post('/order', authValidations.isAuthenticated, ordersValidations.validateOrder,  ordersController.newOrder) 
 .patch('/order/:order_id/price', authValidations.isAuthenticated, ordersValidations.checkOrder, ordersController.updatePrice)
 
 export default routes;

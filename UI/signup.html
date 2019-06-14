@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,58 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AutoMart | Sign Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
     <link rel="shortcut icon" href="./pictures/favicon.png" id="favicon">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/forms.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./styles/responsive.css">
 </head>
 <body>
     <header>
         <div class="branding"><a href="./" class="primary">AutoMart</a></div>
-        <div class="search-bar">
-            <select name="filter" id="filter">
-                <option value="">Filter by</option>
-                <option value="price-range">Price range</option>
-                <option value="state">State</option>
-                <option value="state">Manufacturer</option>
-            </select>
-            <input type="text" class="text-filter no-split" placeholder="Type your search here or filter...">
-            <button class="filterBtn">Filter</button>
-        </div>
         <nav class="navigation">
-            <li>
-                <a href="./signup.html">Sign up</a>
-            </li>
             <li>
                 <a href="./signin.html">Sign in</a>
             </li>
+            <li>
+                <a href="./signup.html">Sign up</a>
+            </li>
         </nav>
-        <div class="dropdown">
-            <img src="./pictures/default_avatar.png" alt="user avatar" class="user-avatar dropdown-toggle">
-            <ul class="dropdown-menu">
-                    <li><a href="./admin.html">Admin Panel</a></li>
-                <li><a href="./profile.html">Profile</a></li>
-                <li><a href="./signin.html">Logout</a></li>
-            </ul>
-        </div>
+        
     </header>
     <main>
        <div class="feedback-form">
-            <form action="./profile.html">
-                <label for="fname">First Name<span class="danger"> &ast;</span></label>
-                <input type="text" id="fname" name="first_name" placeholder="Your firstname">
-                <label for="lname">Last Name<span class="danger"> &ast;</span></label>
-                <input type="text" id="lname" name="last_name" placeholder="Your lastname">
-                <label for="email">Email<span class="danger"> &ast;</span></label>
-                <input type="email" id="email" name="email" placeholder="Your email">
-                <label for="password">Password<span class="danger"> &ast;</span></label>
-                <input type="password" id="password" name="password" placeholder="Your password">
-                <label for="address">Address<span class="danger"> &ast;</span></label>
-                <input type="text" id="address" name="address" placeholder="Your address">
-                <button type="submit" class="btn-submit">Sign Up</button>
-                If already have an account signin <a href="signin.html" class="primary">here</a>
+            <form action="./index_auth.html" method="POST" class="signupForm">
+                <div class="feedback-f-header">
+                    <h2>Sign Up</h2>
+                </div>
+                <div class="feedback-f-body">
+                    <input type="text" id="fname" name="first_name" placeholder="First Name">
+                    <input type="text" id="lname" name="last_name" placeholder="Last Name">
+                    <input type="email" id="email" name="email" placeholder="Email">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <input type="text" id="address" name="address" placeholder="Address">
+                    <button type="submit" class="btn-submit">Sign Up</button>
+                    If already have an account signin <a href="signin.html" class="primary">here</a>
+                </div>
+                
             </form>
        </div>
     </main>
     <footer>
+        <div class="ft-sections">
+            <div class="col">
+                <h3>Our services</h3>
+                <div class="ft-description">We provide you the best </div><br>
+                <li>Ads services</li>
+                <li>purchase orders</li>
+                <li>and other amazing things</li>
+            </div>
+            <div class="col">
+                <h3>Contacts</h3>
+                <div class="ft-description">Join us on :</div><br>
+                <li>Whatsapp : +2507809102538</li>
+                <li>Facebook : <a href="https://facebook.com">here</a></li>
+            </div>
+            <div class="col">
+                <h3>Addresses</h3>
+                <div class="ft-description">
+                    Rwanda Kigali, Congo Drc Kinshasa, Kenya Nairobi , Nigeria Lagos
+                </div>
+            </div>
+        </div>
+        <div class="copyright">AutoMart Project &copy;2019</div>
         <div class="scroller">
             <div class="toggler arrow-up"></div>
         </div>

@@ -35,20 +35,56 @@ describe('Auth ', () => {
           if (err) done(err);
           expect(res).to.have.status(201)
           expect(res.body).to.be.an('object')
-          expect(res.body.data).to.have.property('token')
+          expect(res.body).to.have.property('data')
           done();
         })
-    })
-    it('should return an object with status 200 when a user signs in', (done) => {
+  })
+    it('should return an object with status 400 when a user signs up without credentials', (done) => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signup')
+        .set('Content-type', 'application/json')
+        .set('Content-type', 'application/x-www-form-urlencoded')
+        .send({})
+        .end((err, res) => {
+          if (err) done(err);
+          expect(res).to.have.status(400)
+          expect(res.body).to.be.an('object')
+          expect(res.body).to.have.property('error')
+          done();
+        })
+  })
+  it('should return an object with status 403 when a creates an existing account', (done) => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signup')
+        .set('Content-type', 'application/json')
+        .set('Content-type', 'application/x-www-form-urlencoded')
+        .send({
+            email : "test@gmail.com",
+            first_name : "Test",
+            last_name : "Test",
+            password : "secret",
+            password_confirm : "secret",
+            address : "Kigali KK309"
+        })
+        .end((err, res) => {
+          if (err) done(err);
+          expect(res).to.have.status(403)
+          expect(res.body).to.be.an('object')
+          expect(res.body).to.have.property('error')
+          done();
+        })
+  })
+  
+  it('should return an object with status 200 when a user signs in using token', (done) => {
       chai
         .request(app)
         .post('/api/v1/auth/signin')
         .set('content-type', 'application/json')
         .set('Content-type', 'application/x-www-form-urlencoded')
-        .send({
-            email : "bihames4vainqueur@gmail.com",
-            password : "secret"
-        })
+        .set('Authorization', `Bearer ${userModel.authToken}`)
+        .send()
         .end((err, res) => {
           if (err) done(err);
           expect(res).to.have.status(200)
@@ -57,12 +93,28 @@ describe('Auth ', () => {
           done();
         })
     })
+    it('should return an object with status 400 when a user signs in with body', (done) => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signin')
+        .set('content-type', 'application/json')
+        .set('Content-type', 'application/x-www-form-urlencoded')
+        .send({})
+        .end((err, res) => {
+          if (err) done(err);
+          expect(res).to.have.status(400)
+          expect(res.body).to.be.an('object')
+          expect(res.body).to.have.property('errors')
+          done();
+        })
+    })
+
     it('should have a status 200 and a message when the user signs out', (done) => {
       chai
         .request(app)
         .post('/api/v1/auth/signout')
         .set('content-type', 'application/json')
-        .set('Authorization', userModel.getAuth())
+        .set('Authorization', `Bearer ${userModel.authToken}`)
         .end((err, res) => {
           if (err) done(err);
           expect(res).to.have.status(200)
@@ -81,6 +133,19 @@ describe('Auth ', () => {
           if (err) done(err);
           expect(res).to.have.status(200)
           expect(res.body.data).to.have.property('url')
+          done();
+        })
+    })
+    it('Should return a 404 status for not found pages', (done) => {
+      chai
+        .request(app)
+        .get('**')
+        .set('content-type', 'application/json')
+        .set('Content-type', 'application/x-www-form-urlencoded')
+        .send()
+        .end((err, res) => {
+          if (err) done(err);
+          expect(res).to.have.status(403)
           done();
         })
     })

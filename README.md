@@ -8,7 +8,7 @@
 Comprehensive documentation for the API is hosted [here](https://winner1.docs.apiary.io/#reference).
 
 ## Deployment
-This app his hosted on heroku [here](https://winners-automart.herokuapp.com)
+This app his hosted on heroku [here](https://winners-automart.herokuapp.com/api/v1)
 
 ## Features
 - Users can sign up or register.
@@ -33,7 +33,7 @@ This app his hosted on heroku [here](https://winners-automart.herokuapp.com)
 
 ## Tools
 Tools used for development of this API are;
-- Documentation : [Swagger](https://swagger.io/)
+- Documentation : [Apiary](https://winner1.docs.apiary.io/#reference)
 - Framework: [ExpressJS](http://expressjs.com/)
 - Code Editor/IDE: [VSCode](https://code.visualstudio.com)
 - Programming language: [JavaScript(ES6)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/)

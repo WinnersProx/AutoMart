@@ -23,10 +23,10 @@ describe('Orders', () => {
         .post('/api/v1/order')
         .set('Content-type', 'application/json')
         .set('Content-type', 'application/x-www-form-urlencoded')
-        .set('Authorization', userModel.getAuth())
+        .set('Authorization', `Bearer ${userModel.authToken}`)
         .send({
-            amount : 142000,
-            car_id : 0
+            price_offered : 142000,
+            car_id : 2
         })
         .end((err, res) => {
           if (err) done(err);
@@ -37,13 +37,29 @@ describe('Orders', () => {
           done();
         })
     })
+    it('should return a 400 status if there is no related car and amount', (done) => {
+      chai
+        .request(app)
+        .post('/api/v1/order')
+        .set('Content-type', 'application/json')
+        .set('Content-type', 'application/x-www-form-urlencoded')
+        .set('Authorization', `Bearer ${userModel.authToken}`)
+        .send({})
+        .end((err, res) => {
+          if (err) done(err);
+          expect(res).to.have.status(400)
+          expect(res.body).to.be.an('object')
+          expect(res.body).to.have.property('errors')
+          done();
+        })
+    })
     it('user can update the price of his purchase order', (done) => {
         chai
           .request(app)
-          .patch('/order/0/price')
+          .patch('/order/1/price')
           .set('Content-type', 'application/json')
           .set('Content-type', 'application/x-www-form-urlencoded')
-          .set('Authorization', userModel.getAuth())
+          .set('Authorization', `Bearer ${userModel.authToken}`)
           .send({
               amount : 142000
           })
