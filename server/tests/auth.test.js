@@ -12,7 +12,7 @@ describe('Auth ', () => {
     .set('Content-type', 'application/json')
     .set('Content-type', 'application/x-www-form-urlencoded')
     .send({ email : "bihames4vainqueur@gmail.com", password : "secret"})
-    .then((res) => {
+    .then((res) => {4
       done()
     })
     
@@ -133,19 +133,6 @@ describe('Auth ', () => {
           if (err) done(err);
           expect(res).to.have.status(200)
           expect(res.body.data).to.have.property('url')
-          done();
-        })
-    })
-    it('Should return a 404 status for not found pages', (done) => {
-      chai
-        .request(app)
-        .get('**')
-        .set('content-type', 'application/json')
-        .set('Content-type', 'application/x-www-form-urlencoded')
-        .send()
-        .end((err, res) => {
-          if (err) done(err);
-          expect(res).to.have.status(403)
           done();
         })
     })
