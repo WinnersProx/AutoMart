@@ -9,8 +9,6 @@
   "scripts": {
     "start": "nodemon index --exec babel-node --presets @babel/preset-env",
     "test": "mocha --exit --require @babel/register ./server/tests/*",
-    "build": "babel index.js --out-dir build",
-    "dev-start": "babel-watch index.js",
     "lint": "eslint",
     "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test | coveralls"
   },
