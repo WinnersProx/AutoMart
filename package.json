@@ -27,7 +27,7 @@
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-env": "^7.22.6",
     "@babel/register": "^7.4.4",
     "bcrypt": "^3.0.6",
     "braces": "^2.3.1",
