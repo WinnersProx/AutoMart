@@ -32,7 +32,7 @@
     "bcrypt": "^3.0.6",
     "braces": "^2.3.1",
     "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
+    "chai-http": "^5.0.0",
     "cloudinary": "^1.14.0",
     "cors": "^2.8.5",
     "coveralls": "^3.0.4",
